@@ -199,7 +199,7 @@ function makeMap() {
 
 // Set Panorama Image
 function setPanoramaImage(panorama) {
-  panoramaSphere.material.map = image;
+  panoramaSphere.material.map = panorama;
 }
 
 function resizeRendererToDisplaySize(renderer) {
@@ -277,13 +277,13 @@ function onload(gltf, Object, x, z, scalar, rotationY) {
   scene.add(mesh);
   scene.add(obj);
 
-  const mesh1 = new THREE.Mesh(new THREE.BoxGeometry(10, 10, 10), new THREE.MeshBasicMaterial({ color: 0xff0000, transparent: true, opacity: 0 }));
-  mesh1.position.x = obj.position.x;
-  mesh1.position.y = 5;
-  mesh1.position.z = obj.position.z;
-  Object.setMesh(mesh1);
-  scene.add(mesh1);
-  scene.add(obj);
+  // const mesh1 = new THREE.Mesh(new THREE.BoxGeometry(10, 10, 10), new THREE.MeshBasicMaterial({ color: 0xff0000, transparent: true, opacity: 0 }));
+  // mesh1.position.x = obj.position.x;
+  // mesh1.position.y = 5;
+  // mesh1.position.z = obj.position.z;
+  // Object.setMesh(mesh1);
+  // scene.add(mesh1);
+  // scene.add(obj);
 
   // Add First (Top) Light
   const light1 = new THREE.SpotLight(0xffffff, 0.5);
