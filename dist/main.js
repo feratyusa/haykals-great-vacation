@@ -219,26 +219,32 @@ class gltf_object {
 var objects = [];
 const gltf_loader = new GLTFLoader();
 function onload(gltf, Object, x, z, scalar){
-    // Add Object
-    Object.setPos(x, z);
-    Object.setObj(gltf.scene);
-    const obj = Object.getObj();
-    obj.scale.multiplyScalar(scalar); // adjust scalar factor to match your scene scale
-    obj.position.x = Object.pos.x * WALL_WIDTH_DEPTH; // once rescaled, position the model where needed
-    obj.position.z = Object.pos.z * WALL_WIDTH_DEPTH;
-    scene.add(obj);
-    // Add First Light
-    const light1 = new THREE.DirectionalLight(0xffffff, 1);
-    light1.position.set(obj.position.x + 3, 30, obj.position.z + 2);
-    light1.target.position.set(obj.position.x, 0, obj.position.z);
-    scene.add(light1);
-    scene.add(light1.target);
-    // Add Second Light
-    const light2 = new THREE.DirectionalLight(0xffffff, 1);
-    light2.position.set(obj.position.x + 3, 0, obj.position.z - 2);
-    light2.target.position.set(obj.position.x, 30, obj.position.z);
-    scene.add(light2);
-    scene.add(light2.target);
+  // Add Object
+  Object.setPos(x, z);
+  Object.setObj(gltf.scene);
+  const obj = Object.getObj();
+  obj.scale.multiplyScalar(scalar); // adjust scalar factor to match your scene scale
+  obj.position.x = Object.pos.x * WALL_WIDTH_DEPTH; // once rescaled, position the model where needed
+  obj.position.z = Object.pos.z * WALL_WIDTH_DEPTH;
+  scene.add(obj);
+  // Add First (Top) Light
+  const light1 = new THREE.SpotLight(0xffffff, 1);
+  light1.position.set(obj.position.x, 40, obj.position.z);
+  light1.target.position.set(obj.position.x, 0, obj.position.z);
+  scene.add(light1);
+  scene.add(light1.target);
+  // Add Second (Front/Back) Light
+  const light2 = new THREE.DirectionalLight(0xffffff, 1);
+  light2.position.set(obj.position.x + 3, 0, obj.position.z);
+  light2.target.position.set(obj.position.x, 40, obj.position.z);
+  scene.add(light2);
+  scene.add(light2.target);
+  // Add Third (Front/Back) Light
+  const light3 = new THREE.DirectionalLight(0xffffff, 1);
+  light3.position.set(obj.position.x - 3, 0, obj.position.z);
+  light3.target.position.set(obj.position.x, 40, obj.position.z);
+  scene.add(light3);
+  scene.add(light3.target);
 }
 
 /**
@@ -292,17 +298,12 @@ gltf_loader.load(tajmahal.getObjPath(), function (gltf) {
 objects.push(monas, pisa, eiffel, tajmahal);
 
 /**
- * Camera, Lights, and Controls
+ * Camera and Controls
  * 
  */
 // camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 camera.position.set(player.positionX, player.positionY, player.positionZ);
-
-// Light
-// const lightB = new THREE.DirectionalLight(0xffffff, 1);
-// lightB.position.set(0, 0, 40);
-// scene.add(lightB);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
