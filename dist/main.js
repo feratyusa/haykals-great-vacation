@@ -370,6 +370,7 @@ gltf_loader.load(tajmahal.getObjPath(), function (gltf) {
 objects.push(monas);
 objects.push(pisa);
 objects.push(eiffel);
+objects.push(tajmahal, coles);
 
 /**
  * Camera, Renderer, Controls, and Raycaster
@@ -417,7 +418,7 @@ const onMouseClick = function (e) {
         player.positionX = camera.position.x;
         player.positionY = camera.position.y;
         player.positionZ = camera.position.z;
-        // setPanoramaImage(object.getPanorama());
+        setPanoramaImage(object.getPanorama());
         camera.position.set(0, -1000, 0);
       } else {
         document.getElementById("mouse").innerHTML = "Not Nice";
