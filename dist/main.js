@@ -96,6 +96,8 @@ var panoramaSphere;
 /**
  * Preload Textures
  */
+
+// Museum Texture
 const loader_texture = new THREE.TextureLoader();
 const texture_wall0 = loader_texture.load("texture/wall0.jpg");
 const texture_roof0 = loader_texture.load("texture/wall0.jpg");
@@ -103,11 +105,14 @@ const texture_floor0 = loader_texture.load("texture/floor0.jpg");
 texture_floor0.wrapT = THREE.RepeatWrapping;
 texture_floor0.wrapS = THREE.RepeatWrapping;
 texture_floor0.repeat.set(100, 100);
+
+// Panorama Texture
 const pan_monas = loader_texture.load("panorama/monas.png");
 const pan_pisa = loader_texture.load("panorama/pisa.png");
 const pan_eiffel = loader_texture.load("panorama/Eiffel Panoramic.jpg");
 const pan_coles = loader_texture.load('panorama/ColesseumPanoramic.jpg');
 const pan_taj = loader_texture.load('panorama/PanoramicTajMahal.jpg');
+
 /**
  *
  * All the functions and utils for the app
@@ -312,6 +317,7 @@ var monas = new gltf_object("Monas", "obj/monas/scene.gltf", pan_monas);
 gltf_loader.load(monas.getObjPath(), function (gltf) {
   onload(gltf, monas, monas_pos.x, monas_pos.z, 1 / 2);
 });
+
 /**
  * Object Colesseum
  */
@@ -324,6 +330,7 @@ var coles = new gltf_object("Colesseum", 'obj/colesseum/scene.gltf', pan_coles);
 gltf_loader.load(coles.getObjPath(), function(gltf){
   onload(gltf, coles, coles_pos.x, coles_pos.z, 1);
 });
+
 /**
  * Object Pisa
  */
@@ -336,6 +343,9 @@ gltf_loader.load(pisa.getObjPath(), function (gltf) {
   onload(gltf, pisa, pisa_pos.x, pisa_pos.z, 1 / 4, Math.PI / 2);
 });
 
+/**
+ * Object Eiffel Tower
+ */
 const eiffel_pos = {
   x: 20,
   z: 15,
@@ -345,9 +355,9 @@ gltf_loader.load(eiffel.getObjPath(), function (gltf) {
   onload(gltf, eiffel, eiffel_pos.x, eiffel_pos.z, 1.5, Math.PI / 2);
 });
 
-// /**
-//  * Object Taj Mahal
-//  */
+/**
+ * Object Taj Mahal
+ */
 const tajmahal_pos = {
   x: 45,
   z: 15,
@@ -456,12 +466,6 @@ const mainloop = function () {
   }
 
   renderer.render(scene, camera);
-  for (var i = 0; i < objects.length; i++) {
-    if (objects[i].getObj()) {
-      const obj = objects[i].getObj();
-      obj.rotation.y += 0.01;
-    }
-  }
   requestAnimationFrame(mainloop);
 };
 mainloop();
