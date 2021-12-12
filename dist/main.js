@@ -7,21 +7,30 @@
 
 import * as THREE from "https://cdn.skypack.dev/three@0.135.0";
 import { PointerLockControls } from "https://cdn.skypack.dev/three@0.135.0/examples/jsm/controls/PointerLockControls.js";
-
+import { GLTFLoader } from "https://cdn.skypack.dev/three@0.135.0/examples/jsm/loaders/GLTFLoader.js";
 
 /**
- * Preload Textures
+ * Canvas and Scene
  * 
  */
 
-const loader = new THREE.TextureLoader();
-const texture_wall0 = loader.load('texture/wall0.jpg');
-const texture_roof0 = loader.load('texture/wall0.jpg');
-const texture_floor0 = loader.load('texture/floor0.jpg');
+// canvas
+const canvas = document.getElementById("c");
+
+// scene and fog
+const scene = new THREE.Scene();
+scene.background = new THREE.Color("grey");
+
+/**
+ * Preload Textures
+ */
+const loader_texture = new THREE.TextureLoader();
+const texture_wall0 = loader_texture.load('texture/wall0.jpg');
+const texture_roof0 = loader_texture.load('texture/wall0.jpg');
+const texture_floor0 = loader_texture.load('texture/floor0.jpg');
 texture_floor0.wrapT = THREE.RepeatWrapping;
 texture_floor0.wrapS = THREE.RepeatWrapping;
 texture_floor0.repeat.set(100, 100);
-
 
 /**
  * 
@@ -40,7 +49,7 @@ const player = {
 const MAP_WIDTH = 50;
 const MAP_LENGTH = 50;
 const WALL_WIDTH_DEPTH = 2;
-const WALL_HEIGHT = 30;
+const WALL_HEIGHT = 60;
 const ROOF_WIDTH = 100;
 const ROOF_HEIGHT = 100;
 // const WALL_COLOR = 0xadd8e6;
@@ -52,7 +61,7 @@ function makeFloor(texture) {
   material.color = new THREE.Color(0xffffff);
   material.side = THREE.DoubleSide;
   const floor = new THREE.Mesh(geometry, material);
-  floor.position.set(50, -1, 50);
+  floor.position.set(50, 0, 50);
   floor.rotation.x = Math.PI * -0.5;
   return floor;
 }
@@ -64,7 +73,7 @@ function makeRoof(texture){
   material.side = THREE.DoubleSide;
   const roof = new THREE.Mesh(geometry, material);
   roof.rotation.x = Math.PI / 2;
-  roof.position.set(50, 20, 50);
+  roof.position.set(50, 40, 50);
   return roof;
 }
 
@@ -77,19 +86,21 @@ function makeWall(texture) {
   return wall;
 }
 
-// Make BoxGeometry
-function makeBox() {
-  const geometry = new THREE.BoxGeometry(WALL_WIDTH_DEPTH, WALL_HEIGHT, WALL_WIDTH_DEPTH);
-  const material = new THREE.MeshBasicMaterial();
-  material.color = new THREE.Color(WALL_COLOR);
-  material.side = THREE.DoubleSide;
-  const box = new THREE.Mesh(geometry, material);
-  return box;
+// Put Objects
+function putObj(x, y, z, obj, path){
+  const loader = new GLTFLoader();
+  loader.load(path, function(gltf){
+    obj = gltf.scene;
+    obj.multiplyScalar(1/3);
+    obj.position.x = x;
+    obj.position.y = y;
+    obj.position.z = z;
+    scene.add(obj);
+  });
 }
 
 // Map
 function makeMap() {
-  let z = 0;
   const maps = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -145,7 +156,7 @@ function makeMap() {
 
   for (let z = 0; z < MAP_WIDTH; z++) {
     for(let x = 0; x < MAP_LENGTH; x++){
-        if(maps[z][x] == 1){
+        if (maps[z][x] == 1) {
           const wall = makeWall(texture_wall0);
           wall.position.set(x * WALL_WIDTH_DEPTH, 6, z * WALL_WIDTH_DEPTH);
           scene.add(wall);
@@ -170,24 +181,128 @@ function resizeRendererToDisplaySize(renderer) {
 }
 
 /**
- * Utilities for the app
+ * Objects GLTF
+ * 
  */
 
-// canvas
-const canvas = document.getElementById("c");
+// Class Object GLTF
+class gltf_object {
+  constructor(name, objPath, panoramaPath){
+    this.Name = name;
+    this.ObjectPath = objPath;
+    this.PanoramaPath = panoramaPath;
+  }
+  setPos(x, z){
+    this.pos = {
+      x: x,
+      y: 0,
+      z: z
+    }
+  }
+  setObj(obj){
+    this.Object = obj;
+  }
+  getPos(){
+    return this.pos;
+  }
+  getObj(){
+    return this.Object;
+  }
+  getObjPath(){
+    return this.ObjectPath;
+  }
+  getPanorama(){
+    return this.PanoramaPath;
+  }
+}
 
-// scene and fog
-const scene = new THREE.Scene();
-scene.background = new THREE.Color("grey");
+var objects = [];
+const gltf_loader = new GLTFLoader();
+function onload(gltf, Object, x, z, scalar){
+    // Add Object
+    Object.setPos(x, z);
+    Object.setObj(gltf.scene);
+    const obj = Object.getObj();
+    obj.scale.multiplyScalar(scalar); // adjust scalar factor to match your scene scale
+    obj.position.x = Object.pos.x * WALL_WIDTH_DEPTH; // once rescaled, position the model where needed
+    obj.position.z = Object.pos.z * WALL_WIDTH_DEPTH;
+    scene.add(obj);
+    // Add First Light
+    const light1 = new THREE.DirectionalLight(0xffffff, 1);
+    light1.position.set(obj.position.x + 3, 30, obj.position.z + 2);
+    light1.target.position.set(obj.position.x, 0, obj.position.z);
+    scene.add(light1);
+    scene.add(light1.target);
+    // Add Second Light
+    const light2 = new THREE.DirectionalLight(0xffffff, 1);
+    light2.position.set(obj.position.x + 3, 0, obj.position.z - 2);
+    light2.target.position.set(obj.position.x, 30, obj.position.z);
+    scene.add(light2);
+    scene.add(light2.target);
+}
 
+/**
+ * Object Monas
+ */
+const monas_pos = {
+  x: 3,
+  z: 20
+}
+var monas = new gltf_object('Monas', 'obj/monas/scene.gltf', '/');
+gltf_loader.load(monas.getObjPath(), function (gltf) {
+    onload(gltf, monas, monas_pos.x, monas_pos.z, 1/3);
+});
+
+/**
+ * Object Pisa
+ */
+const pisa_pos = {
+  x: 3,
+  z: 40
+}
+var pisa = new gltf_object('Pisa Tower', 'obj/pisa/scene.gltf', '/');
+gltf_loader.load(pisa.getObjPath(), function (gltf) {
+    onload(gltf, pisa, pisa_pos.x, pisa_pos.z, 1/4);
+});
+
+/**
+ * Object Eiffel
+ */
+const eiffel_pos = {
+  x: 20,
+  z: 25
+}
+var eiffel = new gltf_object('Eiffel Tower', 'obj/eiffel/scene.gltf', '/');
+gltf_loader.load(eiffel.getObjPath(), function (gltf) {
+    onload(gltf, eiffel, eiffel_pos.x, eiffel_pos.z, 1);
+});
+
+/** 
+ * Object Taj Mahal
+ */
+const tajmahal_pos = {
+  x: 20,
+  z: 45
+}
+var tajmahal = new gltf_object('Taj Mahal', 'obj/tajmahal/scene.gltf', '/');
+gltf_loader.load(tajmahal.getObjPath(), function (gltf) {
+    onload(gltf, tajmahal, tajmahal_pos.x, tajmahal_pos.z, 1/25);
+});
+
+objects.push(monas, pisa, eiffel, tajmahal);
+
+/**
+ * Camera, Lights, and Controls
+ * 
+ */
 // camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 camera.position.set(player.positionX, player.positionY, player.positionZ);
 
 // Light
-const lightB = new THREE.DirectionalLight(0xffffff, 1);
-lightB.position.set(0, 0, 40);
-scene.add(lightB);
+// const lightB = new THREE.DirectionalLight(0xffffff, 1);
+// lightB.position.set(0, 0, 40);
+// scene.add(lightB);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
