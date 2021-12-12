@@ -9,6 +9,11 @@ body {
   z-index: 0;
   display: block;
 }
+#ket{
+  position: absolute;
+  z-index: 1;
+  display: block;
+}
 #container {
   position: relative; /* makes this the origin of its children */
   width: 100%;
