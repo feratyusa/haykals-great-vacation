@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rome Colosseum Ornament - Agisoft
+* source:	https://sketchfab.com/3d-models/rome-colosseum-ornament-agisoft-ce33b923b68a458ea9135fabb62c55ef
+* author:	09williamsad (https://sketchfab.com/adamw1806)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rome Colosseum Ornament - Agisoft" (https://sketchfab.com/3d-models/rome-colosseum-ornament-agisoft-ce33b923b68a458ea9135fabb62c55ef) by 09williamsad (https://sketchfab.com/adamw1806) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -104,6 +104,7 @@ texture_floor0.wrapT = THREE.RepeatWrapping;
 texture_floor0.wrapS = THREE.RepeatWrapping;
 texture_floor0.repeat.set(100, 100);
 const pan_monas = loader_texture.load('panorama/monas.png');
+const pan_coles = loader_texture.load('panorama/ColesseumPanoramic.jpg');
 
 /**
  * 
@@ -169,6 +170,11 @@ function makePanoramaSphere(){
   sphere.position.set(0, -1000, 0);
   return sphere;
 }
+
+// Sphere for Panorama
+// function makePanoramaSphere(){
+  
+// }
 
 // Make Map
 function makeMap() {
@@ -301,6 +307,17 @@ gltf_loader.load(monas.getObjPath(), function (gltf) {
     onload(gltf, monas, monas_pos.x, monas_pos.z, 1/3);
 });
 
+/**
+ * Object Colesseum
+ */
+const colesseum_pos = {
+  x : 30,
+  z : 15,
+}
+var colesseum = new gltf_object('Colesseum','obj/colesseum/scene.gltf' ,pan_coles);
+gltf_loader.load(colesseum.getObjPath(), function(gltf){
+  onload(gltf, colesseum, colesseum_pos.x, colesseum_pos.z, 1/3);
+});
 /**
  * Object Pisa
  */
@@ -439,8 +456,8 @@ const mainloop = function () {
 
   renderer.render(scene, camera);
   for(var i=0; i < objects.length; i++){
-    if (objects[0].getObj()) {
-      const obj = objects[0].getObj();
+    if (objects[i].getObj()) {
+      const obj = objects[i].getObj();
       obj.rotation.y += 0.1;
     }
   }
