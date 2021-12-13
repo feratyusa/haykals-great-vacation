@@ -73,14 +73,14 @@ const maps = [
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
+  [1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
+  [1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
+  [1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
+  [1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
+  [1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -111,8 +111,16 @@ texture_floor0.repeat.set(100, 100);
 const pan_monas = loader_texture.load("panorama/monas.png");
 const pan_pisa = loader_texture.load("panorama/pisa.png");
 const pan_eiffel = loader_texture.load("panorama/Eiffel Panoramic.jpg");
-const pan_coles = loader_texture.load('panorama/ColesseumPanoramic.jpg');
-const pan_taj = loader_texture.load('panorama/PanoramicTajMahal.jpg');
+const pan_coles = loader_texture.load("panorama/ColesseumPanoramic.jpg");
+const pan_taj = loader_texture.load("panorama/PanoramicTajMahal.jpg");
+
+//Lukisan
+const lukisan1 = new THREE.TextureLoader().load("lukisan/Lee-Man-Fong-Bali-Life.jpg");
+const lukisan2 = new THREE.TextureLoader().load("lukisan/Hendra-Gunawan-ALI-SADIKIN-PADA-MASA-PERANG-KEMERDEKAAN.jpg");
+const lukisan3 = new THREE.TextureLoader().load("lukisan/Hendra-Gunawan-Pandawa-Dadu-1973.jpg");
+const lukisan4 = new THREE.TextureLoader().load("lukisan/Rudolf-Bonnet-Market-Scene-1948.jpg");
+const lukisan5 = new THREE.TextureLoader().load("lukisan/lukisan5.jpg");
+const lukisan6 = new THREE.TextureLoader().load("lukisan/world-map.jpg");
 
 /**
  *
@@ -169,7 +177,7 @@ function makeWall(texture) {
   return wall;
 }
 
-function makeWall1(texture){
+function makeWall1(texture) {
   const geometry1 = new THREE.BoxGeometry(WALL_WIDTH_DEPTH, WALL_HEIGHT1, WALL_WIDTH_DEPTH);
   const material1 = new THREE.MeshBasicMaterial({ map: texture });
   material1.side = THREE.DoubleSide;
@@ -198,12 +206,12 @@ function makeMap() {
         wall.position.set(x * WALL_WIDTH_DEPTH, 6, z * WALL_WIDTH_DEPTH);
         scene.add(wall);
       }
-      if (maps[z][x] == 2){
+      if (maps[z][x] == 2) {
         const wall1 = makeWall(texture_wall1);
         wall1.position.set(x * WALL_WIDTH_DEPTH, 6, z * WALL_WIDTH_DEPTH);
         scene.add(wall1);
       }
-      if (maps[z][x] == 3){
+      if (maps[z][x] == 3) {
         const wall2 = makeWall1(texture_wall1);
         wall2.position.set(x * WALL_WIDTH_DEPTH, 6, z * WALL_WIDTH_DEPTH);
         scene.add(wall2);
@@ -327,6 +335,45 @@ function onload(gltf, Object, x, z, scalar, rotationY) {
 }
 
 /**
+ * Lukisan
+ */
+
+const pic1 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan1, side: THREE.DoubleSide }));
+scene.add(pic1);
+pic1.translateX(5.5).translateY(6).translateZ(82);
+pic1.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+
+const pic2 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan2, side: THREE.DoubleSide }));
+scene.add(pic2);
+pic2.translateX(34).translateY(6).translateZ(92.5);
+pic2.rotation.y = Math.PI / -2;
+pic2.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+
+const pic3 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan3, side: THREE.DoubleSide }));
+scene.add(pic3);
+pic3.translateX(54).translateY(6).translateZ(92.5);
+pic3.rotation.y = Math.PI / -2;
+pic3.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+
+const pic4 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan4, side: THREE.DoubleSide }));
+scene.add(pic4);
+pic4.translateX(14).translateY(6).translateZ(92.5);
+pic4.rotation.y = Math.PI / -2;
+pic4.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+
+const pic5 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan5, side: THREE.DoubleSide }));
+scene.add(pic5);
+pic5.translateX(74).translateY(6).translateZ(92.5);
+pic5.rotation.y = Math.PI / -2;
+pic5.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+
+const pic6 = new THREE.Mesh(new THREE.PlaneGeometry(14, 10), new THREE.MeshPhongMaterial({ map: lukisan6, side: THREE.DoubleSide }));
+scene.add(pic6);
+pic6.translateX(92).translateY(7).translateZ(81);
+// pic6.rotation.y = Math.PI / -2;
+pic6.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+
+/**
  * Object Monas
  */
 const monas_pos = {
@@ -342,13 +389,13 @@ gltf_loader.load(monas.getObjPath(), function (gltf) {
 /**
  * Object Colesseum
  */
-const coles_pos ={
+const coles_pos = {
   x: 5,
-  z : 25,
-  y : -2,
+  z: 25,
+  y: -2,
 };
-var coles = new gltf_object("Colesseum", 'obj/colesseum/scene.gltf', pan_coles);
-gltf_loader.load(coles.getObjPath(), function(gltf){
+var coles = new gltf_object("Colesseum", "obj/colesseum/scene.gltf", pan_coles);
+gltf_loader.load(coles.getObjPath(), function (gltf) {
   onload(gltf, coles, coles_pos.x, coles_pos.z, 1);
 });
 
@@ -356,7 +403,7 @@ gltf_loader.load(coles.getObjPath(), function(gltf){
  * Object Pisa
  */
 const pisa_pos = {
-  x: 30,  
+  x: 30,
   z: 15,
 };
 var pisa = new gltf_object("Pisa Tower", "obj/pisa/scene.gltf", pan_pisa);
@@ -382,10 +429,10 @@ gltf_loader.load(eiffel.getObjPath(), function (gltf) {
 const tajmahal_pos = {
   x: 45,
   z: 15,
-}
-var tajmahal = new gltf_object('Taj Mahal', 'obj/tajmahal/scene.gltf', pan_taj);
+};
+var tajmahal = new gltf_object("Taj Mahal", "obj/tajmahal/scene.gltf", pan_taj);
 gltf_loader.load(tajmahal.getObjPath(), function (gltf) {
-    onload(gltf, tajmahal, tajmahal_pos.x, tajmahal_pos.z, 1/15);
+  onload(gltf, tajmahal, tajmahal_pos.x, tajmahal_pos.z, 1 / 15);
 });
 
 objects.push(monas);
