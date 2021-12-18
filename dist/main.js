@@ -15,7 +15,8 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.135.0/examples/jsm/l
 const MAINMENU = 0,
   PLAY = 1,
   PANORAMA = 2,
-  PAUSE = 3;
+  LUKISAN = 3, 
+  PAUSE = 4;
 var state = MAINMENU;
 
 /**
@@ -637,12 +638,21 @@ okButton.onclick = function closeWindow(){
   if(state == PANORAMA){
     state = PANORAMA
   }
+  else if(state == LUKISAN){
+    state = PAUSE
+  }
   else{
     state = PLAY
   }
   keterangan.style.display = "none";
   controls.lock()
 }
+
+controls.addEventListener('lock', function(){
+  if(state == PAUSE){
+    state = PLAY;
+  }
+})
 
 controls.addEventListener('unlock', function(){
   if(state == PLAY){
@@ -655,6 +665,11 @@ controls.addEventListener('unlock', function(){
     ket_panorama.style.display = "block"
     state = PANORAMA
   }
+  else if(state == LUKISAN){
+    ket_awal.style.display = "none"
+    ket_panorama.style.display = "none"
+    state = LUKISAN
+  }
   keterangan.style.display = "block";
 })
 
@@ -664,13 +679,21 @@ const onMouseClick = function (e) {
   raycast.setFromCamera(mouse, camera);
   const intersects = raycast.intersectObjects(scene.children, true);
   if (intersects.length > 0) {
-    var showPanorama = false;
-    var object;
+    var showPanorama = false, showLukisan = false;
+    var object, lukisan;
+    // Check Objects
     for (var i = 0; i < objects.length; i++) {
-      const obj = objects[i].getMesh();
-      if (intersects[0].object == obj) {
+      if (intersects[0].object == objects[i].getMesh()) {
         showPanorama = true;
         object = objects[i];
+        break;
+      }
+    }
+    // Check Lukisan
+    for(var i = 0; i < lukisans.length; i++){
+      if (intersects[0].object == lukisans[i].getMesh()){
+        showLukisan = true;
+        lukisan = lukisans[i];
         break;
       }
     }
@@ -683,6 +706,16 @@ const onMouseClick = function (e) {
       ket_title.innerHTML = object.Name;
       ket_deskripsi.innerHTML = object.Deskripsi;
       state = PANORAMA;
+      controls.unlock();
+    }
+    else if(showLukisan){
+      if(state == PAUSE){
+        state = PLAY
+        return
+      }
+      ket_title.innerHTML = lukisan.Nama;
+      ket_deskripsi.innerHTML = lukisan.Deskripsi;
+      state = LUKISAN;
       controls.unlock();
     }
   }
