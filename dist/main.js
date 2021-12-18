@@ -165,7 +165,7 @@ const ROOF_HEIGHT = 100;
 // Make PlaneGeometry
 function makeFloor(texture) {
   const geometry = new THREE.PlaneGeometry(100, 100);
-  const material = new THREE.MeshBasicMaterial({ map: texture });
+  const material = new THREE.MeshPhongMaterial({ map: texture });
   material.color = new THREE.Color(0xffffff);
   material.side = THREE.DoubleSide;
   const floor = new THREE.Mesh(geometry, material);
