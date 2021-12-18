@@ -57,6 +57,7 @@ scene.background = new THREE.Color("grey");
 // camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 camera.position.set(player.positionX, player.positionY, player.positionZ);
+camera.lookAt(50, 3, 50);
 
 /**
  * Maps Representation w/o Objects
@@ -70,7 +71,7 @@ const maps = [
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
@@ -196,8 +197,8 @@ const WALL_WIDTH_DEPTH = 2;
 const WALL_HEIGHT = 60;
 const WALL_HEIGHT1 = 15;
 const WALL_WIDTH_DEPTH1 = 1;
-const ROOF_WIDTH = 100;
-const ROOF_HEIGHT = 100;
+const ROOF_WIDTH = 120;
+const ROOF_HEIGHT = 120;
 
 // Make PlaneGeometry
 function makeFloor(texture) {
@@ -218,7 +219,7 @@ function makeRoof(texture) {
   material.side = THREE.DoubleSide;
   const roof = new THREE.Mesh(geometry, material);
   roof.rotation.x = Math.PI / 2;
-  roof.position.set(50, 40, 50);
+  roof.position.set(50, 38, 50);
   return roof;
 }
 
@@ -279,8 +280,7 @@ function makeMap() {
         const wall2 = makeWall1(texture_wall1);
         wall2.position.set(x * WALL_WIDTH_DEPTH, 6, z * WALL_WIDTH_DEPTH);
         scene.add(wall2);
-      }
-      else if (maps[z][x] == 5) {
+      } else if (maps[z][x] == 5) {
         const light = makePointLight();
         light.position.set(x * WALL_WIDTH_DEPTH, 30, z * WALL_WIDTH_DEPTH);
         scene.add(light);
