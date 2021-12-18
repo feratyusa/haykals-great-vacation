@@ -488,7 +488,6 @@ controls.addEventListener('unlock', function(){
     state = PAUSE
   }
   else if(state == PANORAMA){
-
     state = PANORAMA
   }
   keterangan.style.display = "block";
@@ -516,6 +515,8 @@ const onMouseClick = function (e) {
       player.positionZ = camera.position.z;
       setPanoramaImage(object.getPanorama());
       camera.position.set(0, -1000, 0);
+      state = PANORAMA;
+      controls.unlock();
     }
   }
 };
@@ -539,6 +540,10 @@ const onKeyDown = function (e) {
       break;
     case "KeyS":
       controls.moveForward(-speed);
+      break;
+    case "KeyQ":
+      camera.position.set(player.positionX, player.positionY, player.positionZ);
+      state = PAUSE;
       break;
     default:
       break;

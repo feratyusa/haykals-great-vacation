@@ -31,8 +31,6 @@ body {
 }
 #keterangan{
   display: none;
-}
-#inner-keterangan{
   position: absolute;
 
   top: 50%;
