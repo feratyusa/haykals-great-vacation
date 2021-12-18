@@ -104,7 +104,7 @@ const maps = [
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 2],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
@@ -279,7 +279,8 @@ function makeMap() {
         const wall2 = makeWall1(texture_wall1);
         wall2.position.set(x * WALL_WIDTH_DEPTH, 6, z * WALL_WIDTH_DEPTH);
         scene.add(wall2);
-      } else if (maps[z][x] == 5) {
+      }
+      else if (maps[z][x] == 5) {
         const light = makePointLight();
         light.position.set(x * WALL_WIDTH_DEPTH, 30, z * WALL_WIDTH_DEPTH);
         scene.add(light);
@@ -561,7 +562,7 @@ welcome_board.rotation.y = Math.PI;
 scene.add(welcome_board);
 
 const wahwah = new THREE.Mesh(new THREE.PlaneGeometry(20, 40), new THREE.MeshPhongMaterial({ map: wah, side: THREE.DoubleSide }));
-wahwah.position.set(25.5 * WALL_WIDTH_DEPTH, 10, 38 * WALL_WIDTH_DEPTH);
+wahwah.position.set(25.5 * WALL_WIDTH_DEPTH, 10, 39 * WALL_WIDTH_DEPTH);
 wahwah.rotation.y = Math.PI;
 scene.add(wahwah);
 
@@ -685,6 +686,8 @@ controls.addEventListener("unlock", function () {
   if (state == PLAY) {
     ket_title.innerHTML = __title;
     ket_deskripsi.innerHTML = __deskripsi;
+    ket_awal.style.display = "block";
+    ket_panorama.style.display = "none";
     state = PAUSE;
   } else if (state == PANORAMA) {
     ket_awal.style.display = "none";
