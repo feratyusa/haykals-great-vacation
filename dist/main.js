@@ -63,6 +63,11 @@ const maps = [
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
@@ -73,7 +78,7 @@ const maps = [
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
-  [2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -127,9 +132,9 @@ texture_floor0.repeat.set(100, 100);
 // Panorama Texture
 const pan_monas = loader_texture.load("panorama/monas.png");
 const pan_pisa = loader_texture.load("panorama/pisa.png");
-const pan_eiffel = loader_texture.load("panorama/Eiffel Panoramic.jpg");
-const pan_coles = loader_texture.load("panorama/ColesseumPanoramic.jpg");
-const pan_taj = loader_texture.load("panorama/PanoramicTajMahal.jpg");
+const pan_eiffel = loader_texture.load("panorama/eiffel.jpg");
+const pan_coles = loader_texture.load("panorama/collesseum.jpg");
+const pan_taj = loader_texture.load("panorama/tajmahal.jpg");
 
 //Lukisan
 const lukisan1 = new THREE.TextureLoader().load("lukisan/Lee-Man-Fong-Bali-Life.jpg");
@@ -153,7 +158,7 @@ const player = {
 };
 
 // Museum
-const MAP_WIDTH = 50;
+const MAP_WIDTH = 55;
 const MAP_LENGTH = 50;
 const WALL_WIDTH_DEPTH = 2;
 const WALL_HEIGHT = 60;
@@ -349,36 +354,36 @@ function onload(gltf, Object, x, y, z, scalar, rotationY) {
 
 const pic1 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan1, side: THREE.DoubleSide }));
 scene.add(pic1);
-pic1.translateX(5.5).translateY(6).translateZ(82);
+pic1.translateX(5.5).translateY(6).translateZ(92);
 pic1.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
 
 const pic2 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan2, side: THREE.DoubleSide }));
 scene.add(pic2);
-pic2.translateX(34).translateY(6).translateZ(92.5);
+pic2.translateX(34).translateY(6).translateZ(102.5);
 pic2.rotation.y = Math.PI / -2;
 pic2.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
 
 const pic3 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan3, side: THREE.DoubleSide }));
 scene.add(pic3);
-pic3.translateX(54).translateY(6).translateZ(92.5);
+pic3.translateX(54).translateY(6).translateZ(102.5);
 pic3.rotation.y = Math.PI / -2;
 pic3.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
 
 const pic4 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan4, side: THREE.DoubleSide }));
 scene.add(pic4);
-pic4.translateX(14).translateY(6).translateZ(92.5);
+pic4.translateX(14).translateY(6).translateZ(102.5);
 pic4.rotation.y = Math.PI / -2;
 pic4.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
 
 const pic5 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan5, side: THREE.DoubleSide }));
 scene.add(pic5);
-pic5.translateX(74).translateY(6).translateZ(92.5);
+pic5.translateX(74).translateY(6).translateZ(102.5);
 pic5.rotation.y = Math.PI / -2;
 pic5.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
 
 const pic6 = new THREE.Mesh(new THREE.PlaneGeometry(14, 10), new THREE.MeshPhongMaterial({ map: lukisan6, side: THREE.DoubleSide }));
 scene.add(pic6);
-pic6.translateX(92).translateY(7).translateZ(81);
+pic6.translateX(92).translateY(7).translateZ(91);
 // pic6.rotation.y = Math.PI / -2;
 pic6.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
 
@@ -387,8 +392,8 @@ pic6.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
  */
 const monas_pos = {
   x: 3,
-  z: 15,
   y: 0,
+  z: 20,
 };
 const desk_monas =
   "Monumen Nasional atau yang populer disingkat dengan Monas atau Tugu Monas adalah monumen peringatan setinggi 132 meter (433 kaki) yang didirikan untuk mengenang perlawanan dan perjuangan rakyat Indonesia untuk merebut kemerdekaan dari pemerintahan kolonial Hindia Belanda. Pembangunan monumen ini dimulai pada tanggal 17 Agustus 1961 di bawah perintah presiden Soekarno dan dibuka untuk umum pada tanggal 12 Juli 1975. Tugu ini dimahkotai lidah api yang dilapisi lembaran emas yang melambangkan semangat perjuangan yang menyala-nyala dari rakyat Indonesia. Monumen Nasional terletak tepat di tengah Lapangan Medan Merdeka, Jakarta Pusat.";
@@ -403,7 +408,7 @@ gltf_loader.load(monas.getObjPath(), function (gltf) {
 const coles_pos = {
   x: 45,
   y: -2,
-  z: 15
+  z: 20
 };
 const desk_coles = "Koloseum (bahasa Latin: Colosseum atau Colisseum; bahasa Italia: Colosseo) adalah sebuah peninggalan bersejarah berupa arena gladiator, dibangun oleh Vespasian. Tempat pertunjukan yang besar berbentuk elips yang disebut amfiteater atau dengan nama aslinya Amphitheatrum Flavium, yang termasuk salah satu dari Enam Puluh Sembilan Keajaiban Dunia Pertengahan. Situs ini terletak di kota kecil di Italia, Roma, yang didirikan oleh Wali kota Vespasianus pada masa Domitianus dan diselesaikan oleh anaknya Titus, dan menjadi salah satu karya terbesar dari arsitektur Kekaisaran Romawi yang pernah dibangun. Koloseum dirancang untuk menampung 50.000 orang penonton."
 var coles = new gltf_object("Colesseum", desk_coles, "obj/colesseum/scene.gltf", pan_coles);
@@ -416,8 +421,8 @@ gltf_loader.load(coles.getObjPath(), function (gltf) {
  */
 const pisa_pos = {
   x: 30,
-  z: 15,
   y: 0,
+  z: 20,
 };
 const desk_pisa = "Menara Miring Pisa (Bahasa Italia: Torre pendente di Pisa atau disingkat Torre di Pisa), atau lebih dikenal dengan Menara Pisa, adalah sebuah campanile atau menara lonceng katedral di kota Pisa, Italia. Menara Pisa sebenarnya dibuat agar berdiri secara vertikal seperti menara lonceng pada umumnya, tetapi mulai miring tak lama setelah pembangunannya dimulai pada Agustus 1173. Ia terletak di belakang katedral dan merupakan bangunan ketiga Campo dei Miracoli (lapangan pelangi) kota Pisa. Ketinggian menara ini adalah 55,86 m dari permukaan tanah terendah dan 56,70 m dari permukaan tanah tertinggi. Kelebaran dinding di bawahnya mencapai 4,09 m dan di puncak 2,48 m. Bobotnya diperkirakan mencapai 14.500 ton. Menara Pisa memiliki 294 anak tangga. Dengan adanya menara ini, sektor pendapatan ekonomi jadi bertambah karena adanya objek wisata."
 var pisa = new gltf_object("Pisa Tower", desk_pisa, "obj/pisa/scene.gltf", pan_pisa);
@@ -431,7 +436,7 @@ gltf_loader.load(pisa.getObjPath(), function (gltf) {
 const eiffel_pos = {
   x: 20,
   y: 0,
-  z: 15
+  z: 20
 };
 const desk_eiffel = "Dinamai sesuai nama perancangnya, Gustave Eiffel, Menara Eiffel adalah bangunan tertinggi di Paris dan salah satu struktur terkenal di dunia. Lebih dari 200.000.000 orang telah mengunjungi menara ini sejak pembangunannya tahun 1889, termasuk 6.719.200 orang tahun 2006, menjadikannya monumen berbayar yang paling banyak dikunjungi di dunia. Termasuk antena setinggi 24 m (79 kaki), struktur ini memiliki tinggi 325 m (1.063 kaki) sejak 2000, yang sama dengan bangunan konvensional bertingkat 81."
 var eiffel = new gltf_object("Eiffel", desk_eiffel, "obj/eiffel/scene.gltf", pan_eiffel);
@@ -445,7 +450,7 @@ gltf_loader.load(eiffel.getObjPath(), function (gltf) {
 const tajmahal_pos = {
   x: 5,
   y: 0,
-  z: 25
+  z: 30
 };
 const desk_tajmahal = "Taj Mahal (bahasa Urdu: تاج محل, Hindi: ताज महल) adalah sebuah monumen yang terletak di Agra, India. Dibangun atas keinginan Kaisar Mughal Shāh Jahān, anak Jahangir, sebagai sebuah mausoleum untuk istri Persianya, Arjumand Banu Begum, juga dikenal sebagai Mumtaz-ul-Zamani atau Mumtaz Mahal. Taj Mahal merupakan sebuah adi karya dari arsitektur Mughal. Shah Jahan, kaisar dari Kekaisaran Mughal memiliki kekayaan yang besar selama masa kejayaannya. Pada 1631 istri ketiganya dan merupakan istri yang paling dicintainya wafat sewaktu melahirkan putrinya Gauhara Begum, anak ke-14 mereka."
 var tajmahal = new gltf_object("Taj Mahal", desk_tajmahal, "obj/tajmahal/scene.gltf", pan_taj);
@@ -479,8 +484,13 @@ const mouse = new THREE.Vector2();
 const controls = new PointerLockControls(camera, renderer.domElement);
 
 okButton.onclick = function closeWindow(){
+  if(state == PANORAMA){
+    state = PANORAMA
+  }
+  else{
+    state = PLAY
+  }
   keterangan.style.display = "none";
-  state = PLAY
   controls.lock()
 }
 
@@ -534,27 +544,31 @@ document.addEventListener("click", onMouseClick, false);
 let speed = 1 / 2;
 
 const onKeyDown = function (e) {
-  if(state != PLAY) return
-  switch (e.code) {
-    case "KeyW":
-      controls.moveForward(speed);
-      break;
-    case "KeyA":
-      controls.moveRight(-speed);
-      break;
-    case "KeyD":
-      controls.moveRight(speed);
-      break;
-    case "KeyS":
-      controls.moveForward(-speed);
-      break;
-    case "KeyQ":
+  if(state == PANORAMA){
+    if(e.code == "KeyQ"){
       camera.position.set(player.positionX, player.positionY, player.positionZ);
       state = PLAY;
-      break;
-    default:
-      break;
+    }
   }
+  else if(state == PLAY){
+    switch (e.code) {
+      case "KeyW":
+        controls.moveForward(speed);
+        break;
+      case "KeyA":
+        controls.moveRight(-speed);
+        break;
+      case "KeyD":
+        controls.moveRight(speed);
+        break;
+      case "KeyS":
+        controls.moveForward(-speed);
+        break;
+      default:
+        break;
+    }
+  }
+  else return;
 };
 document.addEventListener("keydown", onKeyDown, false);
 
