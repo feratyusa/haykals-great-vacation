@@ -31,6 +31,8 @@ const player = {
  */
 const main_menu = document.getElementById("menu");
 const playButton = document.getElementById("play");
+const loading = document.getElementById("loading");
+const loading_text = document.getElementById("loading-text")
 const keterangan = document.getElementById("keterangan");
 const ket_title = document.getElementById("title");
 const ket_deskripsi = document.getElementById("deskripsi");
@@ -160,6 +162,10 @@ const lukisan6 = new THREE.TextureLoader().load("lukisan/world-map.jpg");
 // Text
 const welcome = loader_texture.load("background/welcome.png");
 const wah = loader_texture.load("background/mumei.jpeg");
+
+var textures = []
+textures.push(texture_wall0, texture_wall1, texture_roof0, texture_floor0, pan_coles, pan_eiffel, pan_pisa, pan_monas, pan_taj);
+textures.push(lukisan1,lukisan2,lukisan3,lukisan4,lukisan5,lukisan6);
 
 // Audio
 const listener = new THREE.AudioListener();
@@ -764,7 +770,28 @@ const mainloop = function () {
   requestAnimationFrame(mainloop);
 };
 
+var __loading = true
 playButton.onclick = function play() {
+  loading.style.display = "flex";
+  while(__loading){
+    // Wait for Audio
+    while(!loader_main_bgm){
+      loading_text.innerHTML = "Loading Audio"
+    }
+    // Wait for Textures
+    for(var i=0;i<textures.length;i++){
+      while(!textures[i]){
+        loading_text.innerHTML = "Loading Textures "+ i;
+      }
+    }
+    // Wait for Objects
+    for(var i=0;i<objects.length;i++){
+      while(!objects[i].getObj()){
+        loading_text.innerHTML = "Loading Objects "+i;
+      }
+    }
+    __loading = false
+  }
   main_menu.style.display = "none";
   keterangan.style.display = "block";
   ket_title.innerHTML = __title;

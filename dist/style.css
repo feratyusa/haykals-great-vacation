@@ -9,12 +9,17 @@ body {
   z-index: 0;
   display: block;
 }
-#menu {
+#loading{
+  display: none;
+}
+#menu{
+  display: flex;
+}
+#menu, #loading{
   position: absolute;
   width: 100%;
   height: 100%;
 
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
