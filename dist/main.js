@@ -523,46 +523,6 @@ addLukisan(world_map, lukisan6, Math.PI / 2, KANAN);
 
 lukisans.push(bali_life, ali_sadikin, pandawa_dadu, market_scene, lukisan_5, world_map);
 
-// const pic1 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan1, side: THREE.DoubleSide }));
-// scene.add(pic1);
-// pic1.translateX(5.5).translateY(6).translateZ(92);
-// pic1.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
-// const pic1_spotlight = makeSpotLight();
-// pic1_spotlight.position.set(5.5, 7, 92);
-// pic1_spotlight.target.position.set(5.5,0,92);
-// scene.add(pic1_spotlight)
-// scene.add(pic1_spotlight.target)
-
-// const pic2 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan2, side: THREE.DoubleSide }));
-// scene.add(pic2);
-// pic2.translateX(34).translateY(6).translateZ(102.5);
-// pic2.rotation.y = Math.PI / -2;
-// pic2.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
-
-// const pic3 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan3, side: THREE.DoubleSide }));
-// scene.add(pic3);
-// pic3.translateX(54).translateY(6).translateZ(102.5);
-// pic3.rotation.y = Math.PI / -2;
-// pic3.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
-
-// const pic4 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan4, side: THREE.DoubleSide }));
-// scene.add(pic4);
-// pic4.translateX(14).translateY(6).translateZ(102.5);
-// pic4.rotation.y = Math.PI / -2;
-// pic4.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
-
-// const pic5 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan5, side: THREE.DoubleSide }));
-// scene.add(pic5);
-// pic5.translateX(74).translateY(6).translateZ(102.5);
-// pic5.rotation.y = Math.PI / -2;
-// pic5.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
-
-// const pic6 = new THREE.Mesh(new THREE.PlaneGeometry(14, 10), new THREE.MeshPhongMaterial({ map: lukisan6, side: THREE.DoubleSide }));
-// scene.add(pic6);
-// pic6.translateX(92).translateY(7).translateZ(91);
-// // pic6.rotation.y = Math.PI / -2;
-// pic6.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
-
 /**
  * Board
  */
@@ -651,10 +611,7 @@ gltf_loader.load(tajmahal.getObjPath(), function (gltf) {
   onload(gltf, tajmahal, tajmahal_pos.x, tajmahal_pos.y, tajmahal_pos.z, 1 / 15);
 });
 
-objects.push(monas);
-objects.push(pisa);
-objects.push(eiffel);
-objects.push(tajmahal, coles);
+objects.push(monas, pisa, eiffel, tajmahal, coles);
 
 /**
  * Renderer, Controls, and Raycaster
