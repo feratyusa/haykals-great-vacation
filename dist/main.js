@@ -131,11 +131,27 @@ const maps = [
 var panoramaSphere;
 
 /**
+ * Loader Manager
+ */
+
+var __loading = true;
+const loader_manager = new THREE.LoadingManager();
+loader_manager.onLoad = function(){
+  __loading = false;
+}
+loader_manager.onProgress = function(){
+  __loading = true;
+}
+loader_manager.onError = function(){
+  console.log("Error");
+}
+
+/**
  * Preload Textures
  */
 
 // Museum Texture
-const loader_texture = new THREE.TextureLoader();
+const loader_texture = new THREE.TextureLoader(loader_manager);
 const texture_wall0 = loader_texture.load("texture/wall0.jpg");
 const texture_wall1 = loader_texture.load("texture/wall1.jpg");
 const texture_roof0 = loader_texture.load("texture/wall0.jpg");
@@ -152,12 +168,12 @@ const pan_coles = loader_texture.load("panorama/collesseum.jpg");
 const pan_taj = loader_texture.load("panorama/tajmahal.jpg");
 
 //Lukisan
-const lukisan1 = new THREE.TextureLoader().load("lukisan/Lee-Man-Fong-Bali-Life.jpg");
-const lukisan2 = new THREE.TextureLoader().load("lukisan/Hendra-Gunawan-ALI-SADIKIN-PADA-MASA-PERANG-KEMERDEKAAN.jpg");
-const lukisan3 = new THREE.TextureLoader().load("lukisan/Hendra-Gunawan-Pandawa-Dadu-1973.jpg");
-const lukisan4 = new THREE.TextureLoader().load("lukisan/Rudolf-Bonnet-Market-Scene-1948.jpg");
-const lukisan5 = new THREE.TextureLoader().load("lukisan/Two-balinese-man.jpg");
-const lukisan6 = new THREE.TextureLoader().load("lukisan/world-map.jpg");
+const lukisan1 = loader_texture.load("lukisan/Lee-Man-Fong-Bali-Life.jpg");
+const lukisan2 = loader_texture.load("lukisan/Hendra-Gunawan-ALI-SADIKIN-PADA-MASA-PERANG-KEMERDEKAAN.jpg");
+const lukisan3 = loader_texture.load("lukisan/Hendra-Gunawan-Pandawa-Dadu-1973.jpg");
+const lukisan4 = loader_texture.load("lukisan/Rudolf-Bonnet-Market-Scene-1948.jpg");
+const lukisan5 = loader_texture.load("lukisan/Two-balinese-man.jpg");
+const lukisan6 = loader_texture.load("lukisan/world-map.jpg");
 
 // Text
 const welcome = loader_texture.load("background/welcome.png");
@@ -171,7 +187,7 @@ textures.push(lukisan1,lukisan2,lukisan3,lukisan4,lukisan5,lukisan6);
 const listener = new THREE.AudioListener();
 camera.add(listener);
 const main_bgm = new THREE.Audio(listener);
-const loader_main_bgm = new THREE.AudioLoader();
+const loader_main_bgm = new THREE.AudioLoader(loader_manager);
 loader_main_bgm.load(
   "music/slowmotion.mp3",
   function (res) {
@@ -290,7 +306,7 @@ function makeMap() {
         light.position.set(x * WALL_WIDTH_DEPTH, 30, z * WALL_WIDTH_DEPTH);
         scene.add(light);
       } else if (maps[z][x] == 4) {
-        const loader = new GLTFLoader();
+        const loader = new GLTFLoader(loader_manager);
         loader.load("obj/pot/scene.gltf", function (gltf) {
           const root = gltf.scene;
           root.scale.multiplyScalar(10); // adjust scalar factor to match your scene scale
@@ -370,7 +386,7 @@ class gltf_object {
 }
 
 var objects = [];
-const gltf_loader = new GLTFLoader();
+const gltf_loader = new GLTFLoader(loader_manager);
 function onload(gltf, Object, x, y, z, scalar, rotationY) {
   // Add Object
   Object.setPos(x, y, z);
@@ -760,7 +776,19 @@ document.addEventListener("keydown", onKeyDown, false);
 
 makeMap();
 
-const mainloop = function () {
+var skip = false;
+const mainloop = function () { 
+  if(__loading){
+    // Loading
+  }
+  else if(!__loading && !skip){
+    loading.style.display = "none";
+    keterangan.style.display = "block";
+    ket_title.innerHTML = __title;
+    ket_deskripsi.innerHTML = __deskripsi;
+    state = PLAY;
+    skip = true
+  }
   if (resizeRendererToDisplaySize(renderer)) {
     const canvas = renderer.domElement;
     camera.aspect = canvas.clientWidth / canvas.clientHeight;
@@ -770,32 +798,8 @@ const mainloop = function () {
   requestAnimationFrame(mainloop);
 };
 
-var __loading = true
 playButton.onclick = function play() {
-  loading.style.display = "flex";
-  while(__loading){
-    // Wait for Audio
-    while(!loader_main_bgm){
-      loading_text.innerHTML = "Loading Audio"
-    }
-    // Wait for Textures
-    for(var i=0;i<textures.length;i++){
-      while(!textures[i]){
-        loading_text.innerHTML = "Loading Textures "+ i;
-      }
-    }
-    // Wait for Objects
-    for(var i=0;i<objects.length;i++){
-      while(!objects[i].getObj()){
-        loading_text.innerHTML = "Loading Objects "+i;
-      }
-    }
-    __loading = false
-  }
   main_menu.style.display = "none";
-  keterangan.style.display = "block";
-  ket_title.innerHTML = __title;
-  ket_deskripsi.innerHTML = __deskripsi;
+  loading.style.display = "flex";
   mainloop();
-  state = PLAY;
 };
