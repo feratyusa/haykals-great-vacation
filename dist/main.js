@@ -15,7 +15,7 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.135.0/examples/jsm/l
 const MAINMENU = 0,
   PLAY = 1,
   PANORAMA = 2,
-  LUKISAN = 3, 
+  LUKISAN = 3,
   PAUSE = 4;
 var state = MAINMENU;
 
@@ -29,18 +29,18 @@ const player = {
 /**
  * HTML Elements
  */
-const main_menu = document.getElementById("menu")
+const main_menu = document.getElementById("menu");
 const playButton = document.getElementById("play");
-const keterangan = document.getElementById("keterangan")
-const ket_title = document.getElementById("title")
-const ket_deskripsi = document.getElementById("deskripsi")
-const ket_awal = document.getElementById("ket-awal")
-const ket_panorama = document.getElementById("ket-panorama")
-const okButton = document.getElementById("ok")
+const keterangan = document.getElementById("keterangan");
+const ket_title = document.getElementById("title");
+const ket_deskripsi = document.getElementById("deskripsi");
+const ket_awal = document.getElementById("ket-awal");
+const ket_panorama = document.getElementById("ket-panorama");
+const okButton = document.getElementById("ok");
 
-const __title = "Welcome to THE MUSEUM"
-const __deskripsi = "Hari ini adalah hari libur. Haykal sedang berkujung ke sebuah museum. Akan tetapi, 'museum' ini berbeda dengan museum yang lainnya. Ikutilah perjalanan Haykal mengunjungi MUSEUM!"
-
+const __title = "Welcome to THE MUSEUM";
+const __deskripsi =
+  "Hari ini adalah hari libur. Haykal sedang berkujung ke sebuah museum. Akan tetapi, 'museum' ini berbeda dengan museum yang lainnya. Ikutilah perjalanan Haykal mengunjungi MUSEUM!";
 
 /**
  * Canvas, Camera, and Scene
@@ -139,7 +139,7 @@ const texture_roof0 = loader_texture.load("texture/wall0.jpg");
 const texture_floor0 = loader_texture.load("texture/floor1.jpg");
 texture_floor0.wrapT = THREE.RepeatWrapping;
 texture_floor0.wrapS = THREE.RepeatWrapping;
-texture_floor0.repeat.set(100, 100);
+texture_floor0.repeat.set(110, 110);
 
 // Panorama Texture
 const pan_monas = loader_texture.load("panorama/monas.png");
@@ -153,7 +153,7 @@ const lukisan1 = new THREE.TextureLoader().load("lukisan/Lee-Man-Fong-Bali-Life.
 const lukisan2 = new THREE.TextureLoader().load("lukisan/Hendra-Gunawan-ALI-SADIKIN-PADA-MASA-PERANG-KEMERDEKAAN.jpg");
 const lukisan3 = new THREE.TextureLoader().load("lukisan/Hendra-Gunawan-Pandawa-Dadu-1973.jpg");
 const lukisan4 = new THREE.TextureLoader().load("lukisan/Rudolf-Bonnet-Market-Scene-1948.jpg");
-const lukisan5 = new THREE.TextureLoader().load("lukisan/lukisan5.jpg");
+const lukisan5 = new THREE.TextureLoader().load("lukisan/Two-balinese-man.jpg");
 const lukisan6 = new THREE.TextureLoader().load("lukisan/world-map.jpg");
 
 // Text
@@ -162,13 +162,13 @@ const wah = loader_texture.load("background/mumei.jpeg");
 
 // Audio
 const listener = new THREE.AudioListener();
-camera.add(listener)
+camera.add(listener);
 const main_bgm = new THREE.Audio(listener);
 const loader_main_bgm = new THREE.AudioLoader();
 loader_main_bgm.load(
   "music/slowmotion.mp3",
   function (res) {
-    main_bgm.setLoop(true)
+    main_bgm.setLoop(true);
     main_bgm.setBuffer(res);
     main_bgm.setVolume(0.5);
   },
@@ -201,7 +201,7 @@ const ROOF_HEIGHT = 100;
 
 // Make PlaneGeometry
 function makeFloor(texture) {
-  const geometry = new THREE.PlaneGeometry(100, 100);
+  const geometry = new THREE.PlaneGeometry(120, 120);
   const material = new THREE.MeshPhongMaterial({ map: texture });
   material.color = new THREE.Color(0xffffff);
   material.side = THREE.DoubleSide;
@@ -240,15 +240,15 @@ function makeWall1(texture) {
 }
 
 // Make SpotLight
-function makeSpotLight(){
+function makeSpotLight() {
   const light = new THREE.SpotLight(0xffffff, 0.7);
-  return light
+  return light;
 }
 
 // Make PointLight
-function makePointLight(){
+function makePointLight() {
   const light = new THREE.PointLight(0xffffff, 1, 100, 2);
-  return light
+  return light;
 }
 
 // Sphere for Panorama
@@ -271,21 +271,18 @@ function makeMap() {
         const wall = makeWall(texture_wall0);
         wall.position.set(x * WALL_WIDTH_DEPTH, 6, z * WALL_WIDTH_DEPTH);
         scene.add(wall);
-      }
-      else if (maps[z][x] == 2) {
+      } else if (maps[z][x] == 2) {
         const wall1 = makeWall(texture_wall1);
         wall1.position.set(x * WALL_WIDTH_DEPTH, 6, z * WALL_WIDTH_DEPTH);
         scene.add(wall1);
-      }
-      else if (maps[z][x] == 3) {
+      } else if (maps[z][x] == 3) {
         const wall2 = makeWall1(texture_wall1);
         wall2.position.set(x * WALL_WIDTH_DEPTH, 6, z * WALL_WIDTH_DEPTH);
         scene.add(wall2);
-      }
-      else if(maps[z][x] == 5){
-        const light = makePointLight()
+      } else if (maps[z][x] == 5) {
+        const light = makePointLight();
         light.position.set(x * WALL_WIDTH_DEPTH, 30, z * WALL_WIDTH_DEPTH);
-        scene.add(light)
+        scene.add(light);
       }
     }
   }
@@ -360,7 +357,7 @@ var objects = [];
 const gltf_loader = new GLTFLoader();
 function onload(gltf, Object, x, y, z, scalar, rotationY) {
   // Add Object
-  Object.setPos(x,y,z);
+  Object.setPos(x, y, z);
   Object.setObj(gltf.scene);
   const obj = Object.getObj();
   obj.scale.multiplyScalar(scalar); // adjust scalar factor to match your scene scale
@@ -387,70 +384,68 @@ function onload(gltf, Object, x, y, z, scalar, rotationY) {
 const DEPAN = 0,
   KANAN = 1,
   KIRI = 2;
-class lukisan_object{
-  constructor(nama, deskripsi, size, position){
+class lukisan_object {
+  constructor(nama, deskripsi, size, position) {
     this.Nama = nama;
     this.Deskripsi = deskripsi;
     this.Size = {
       w: size.w,
       h: size.h,
-    }
+    };
     this.Position = {
       x: position.x,
       y: position.y,
-      z: position.z
-    }
+      z: position.z,
+    };
   }
-  setMesh(mesh){
+  setMesh(mesh) {
     this.Mesh = mesh;
   }
-  getMesh(){
+  getMesh() {
     return this.Mesh;
   }
 }
 
-function addLukisan(lukisan, texture, rotation, light_pos){
+function addLukisan(lukisan, texture, rotation, light_pos) {
   // Lukisan
   const geometry = new THREE.PlaneGeometry(lukisan.Size.w, lukisan.Size.h);
-  const material = new THREE.MeshPhongMaterial({map: texture, side: THREE.DoubleSide});
+  const material = new THREE.MeshPhongMaterial({ map: texture, side: THREE.DoubleSide });
   const mesh = new THREE.Mesh(geometry, material);
-  mesh.position.set(lukisan.Position.x, lukisan.Position.y,lukisan.Position.z);
+  mesh.position.set(lukisan.Position.x, lukisan.Position.y, lukisan.Position.z);
   mesh.rotation.y = rotation;
   lukisan.setMesh(mesh);
   scene.add(lukisan.getMesh());
 
   // Lampu
   const light = makeSpotLight();
-  if(light_pos == DEPAN){
+  if (light_pos == DEPAN) {
     light.position.set(lukisan.Position.x, lukisan.Position.y + 6, lukisan.Position.z - 6);
-  }
-  else if(light_pos == KIRI){
+  } else if (light_pos == KIRI) {
     light.position.set(lukisan.Position.x + 6, lukisan.Position.y + 6, lukisan.Position.z);
-  }
-  else if(light_pos == KANAN){
+  } else if (light_pos == KANAN) {
     light.position.set(lukisan.Position.x - 6, lukisan.Position.y + 6, lukisan.Position.z);
   }
-  light.target.position.set(lukisan.Position.x, lukisan.Position.y, lukisan.Position.z)
+  light.target.position.set(lukisan.Position.x, lukisan.Position.y, lukisan.Position.z);
   scene.add(light);
-  scene.add(light.target)
+  scene.add(light.target);
 }
 
-var lukisans = []
+var lukisans = [];
 
-const desk_bali_life = "Lorem ipsum"
+const desk_bali_life = "Oleh Lee Man Fong, 1962";
 const size_bali_life = {
   w: 9,
-  h: 5
-}
+  h: 5,
+};
 const pos_bali_life = {
   x: 5.5,
   y: 6,
-  z: 92
-}
-const bali_life = new lukisan_object("Bali Life", desk_bali_life, size_bali_life, pos_bali_life)
-addLukisan(bali_life, lukisan1, Math.PI/2, KIRI)
+  z: 92,
+};
+const bali_life = new lukisan_object("Bali Life", desk_bali_life, size_bali_life, pos_bali_life);
+addLukisan(bali_life, lukisan1, Math.PI / 2, KIRI);
 
-const desk_ali_sadikin = "Lorem ipsum";
+const desk_ali_sadikin = "Oleh Hendra Gunawan, 1978";
 const size_ali_sadikin = {
   w: 9,
   h: 5,
@@ -463,7 +458,7 @@ const pos_ali_sadikin = {
 const ali_sadikin = new lukisan_object("Ali Sadikin Pada Masa Perang", desk_ali_sadikin, size_ali_sadikin, pos_ali_sadikin);
 addLukisan(ali_sadikin, lukisan2, Math.PI, DEPAN);
 
-const desk_pandawa_dadu = "Lorem ipsum";
+const desk_pandawa_dadu = "Oleh Hendra Gunawan, 1971";
 const size_pandawa_dadu = {
   w: 9,
   h: 5,
@@ -476,7 +471,7 @@ const pos_pandawa_dadu = {
 const pandawa_dadu = new lukisan_object("Pandawa Dadu", desk_pandawa_dadu, size_pandawa_dadu, pos_pandawa_dadu);
 addLukisan(pandawa_dadu, lukisan3, Math.PI, DEPAN);
 
-const desk_market_scene = "Lorem ipsum";
+const desk_market_scene = "Oleh S. Sudjojono, 1979";
 const size_market_scene = {
   w: 9,
   h: 5,
@@ -489,7 +484,7 @@ const pos_market_scene = {
 const market_scene = new lukisan_object("Market Scene", desk_market_scene, size_market_scene, pos_market_scene);
 addLukisan(market_scene, lukisan4, Math.PI, DEPAN);
 
-const desk_lukisan_5 = "Lorem ipsum";
+const desk_lukisan_5 = "Oleh Rudolf Bonnet, 1948";
 const size_lukisan_5 = {
   w: 9,
   h: 5,
@@ -502,7 +497,7 @@ const pos_lukisan_5 = {
 const lukisan_5 = new lukisan_object("Lukisan 5", desk_lukisan_5, size_lukisan_5, pos_lukisan_5);
 addLukisan(lukisan_5, lukisan5, Math.PI, DEPAN);
 
-const desk_world_map = "Lorem ipsum";
+const desk_world_map = "Oleh Rudolf Bonnet, 1954";
 const size_world_map = {
   w: 14,
   h: 10,
@@ -513,9 +508,9 @@ const pos_world_map = {
   z: 91,
 };
 const world_map = new lukisan_object("World Map", desk_world_map, size_world_map, pos_world_map);
-addLukisan(world_map, lukisan6, Math.PI/2, KANAN);
+addLukisan(world_map, lukisan6, Math.PI / 2, KANAN);
 
-lukisans.push(bali_life, ali_sadikin, pandawa_dadu, market_scene, lukisan_5, world_map)
+lukisans.push(bali_life, ali_sadikin, pandawa_dadu, market_scene, lukisan_5, world_map);
 
 // const pic1 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan1, side: THREE.DoubleSide }));
 // scene.add(pic1);
@@ -560,7 +555,7 @@ lukisans.push(bali_life, ali_sadikin, pandawa_dadu, market_scene, lukisan_5, wor
 /**
  * Board
  */
-const welcome_board = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), new THREE.MeshPhongMaterial({map: welcome, side: THREE.DoubleSide}));
+const welcome_board = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), new THREE.MeshPhongMaterial({ map: welcome, side: THREE.DoubleSide }));
 welcome_board.position.set(25.5 * WALL_WIDTH_DEPTH, 20, 17 * WALL_WIDTH_DEPTH);
 welcome_board.rotation.y = Math.PI;
 scene.add(welcome_board);
@@ -569,7 +564,6 @@ const wahwah = new THREE.Mesh(new THREE.PlaneGeometry(20, 40), new THREE.MeshPho
 wahwah.position.set(25.5 * WALL_WIDTH_DEPTH, 10, 38 * WALL_WIDTH_DEPTH);
 wahwah.rotation.y = Math.PI;
 scene.add(wahwah);
-
 
 /**
  * Object Monas
@@ -590,11 +584,12 @@ gltf_loader.load(monas.getObjPath(), function (gltf) {
  * Object Colesseum
  */
 const coles_pos = {
-  x: 5,
-  y: -3,
-  z: 28,
+  x: 30,
+  y: -14,
+  z: 23,
 };
-const desk_coles = "Koloseum (bahasa Latin: Colosseum atau Colisseum; bahasa Italia: Colosseo) adalah sebuah peninggalan bersejarah berupa arena gladiator, dibangun oleh Vespasian. Tempat pertunjukan yang besar berbentuk elips yang disebut amfiteater atau dengan nama aslinya Amphitheatrum Flavium, yang termasuk salah satu dari Enam Puluh Sembilan Keajaiban Dunia Pertengahan. Situs ini terletak di kota kecil di Italia, Roma, yang didirikan oleh Wali kota Vespasianus pada masa Domitianus dan diselesaikan oleh anaknya Titus, dan menjadi salah satu karya terbesar dari arsitektur Kekaisaran Romawi yang pernah dibangun. Koloseum dirancang untuk menampung 50.000 orang penonton."
+const desk_coles =
+  "Koloseum (bahasa Latin: Colosseum atau Colisseum; bahasa Italia: Colosseo) adalah sebuah peninggalan bersejarah berupa arena gladiator, dibangun oleh Vespasian. Tempat pertunjukan yang besar berbentuk elips yang disebut amfiteater atau dengan nama aslinya Amphitheatrum Flavium, yang termasuk salah satu dari Enam Puluh Sembilan Keajaiban Dunia Pertengahan. Situs ini terletak di kota kecil di Italia, Roma, yang didirikan oleh Wali kota Vespasianus pada masa Domitianus dan diselesaikan oleh anaknya Titus, dan menjadi salah satu karya terbesar dari arsitektur Kekaisaran Romawi yang pernah dibangun. Koloseum dirancang untuk menampung 50.000 orang penonton.";
 var coles = new gltf_object("Colesseum", desk_coles, "obj/colesseum/scene.gltf", pan_coles);
 gltf_loader.load(coles.getObjPath(), function (gltf) {
   onload(gltf, coles, coles_pos.x, coles_pos.y, coles_pos.z, 1);
@@ -604,11 +599,12 @@ gltf_loader.load(coles.getObjPath(), function (gltf) {
  * Object Pisa
  */
 const pisa_pos = {
-  x: 30,
+  x: 5,
   y: 1,
   z: 23,
 };
-const desk_pisa = "Menara Miring Pisa (Bahasa Italia: Torre pendente di Pisa atau disingkat Torre di Pisa), atau lebih dikenal dengan Menara Pisa, adalah sebuah campanile atau menara lonceng katedral di kota Pisa, Italia. Menara Pisa sebenarnya dibuat agar berdiri secara vertikal seperti menara lonceng pada umumnya, tetapi mulai miring tak lama setelah pembangunannya dimulai pada Agustus 1173. Ia terletak di belakang katedral dan merupakan bangunan ketiga Campo dei Miracoli (lapangan pelangi) kota Pisa. Ketinggian menara ini adalah 55,86 m dari permukaan tanah terendah dan 56,70 m dari permukaan tanah tertinggi. Kelebaran dinding di bawahnya mencapai 4,09 m dan di puncak 2,48 m. Bobotnya diperkirakan mencapai 14.500 ton. Menara Pisa memiliki 294 anak tangga. Dengan adanya menara ini, sektor pendapatan ekonomi jadi bertambah karena adanya objek wisata."
+const desk_pisa =
+  "Menara Miring Pisa (Bahasa Italia: Torre pendente di Pisa atau disingkat Torre di Pisa), atau lebih dikenal dengan Menara Pisa, adalah sebuah campanile atau menara lonceng katedral di kota Pisa, Italia. Menara Pisa sebenarnya dibuat agar berdiri secara vertikal seperti menara lonceng pada umumnya, tetapi mulai miring tak lama setelah pembangunannya dimulai pada Agustus 1173. Ia terletak di belakang katedral dan merupakan bangunan ketiga Campo dei Miracoli (lapangan pelangi) kota Pisa. Ketinggian menara ini adalah 55,86 m dari permukaan tanah terendah dan 56,70 m dari permukaan tanah tertinggi. Kelebaran dinding di bawahnya mencapai 4,09 m dan di puncak 2,48 m. Bobotnya diperkirakan mencapai 14.500 ton. Menara Pisa memiliki 294 anak tangga. Dengan adanya menara ini, sektor pendapatan ekonomi jadi bertambah karena adanya objek wisata.";
 var pisa = new gltf_object("Pisa Tower", desk_pisa, "obj/pisa/scene.gltf", pan_pisa);
 gltf_loader.load(pisa.getObjPath(), function (gltf) {
   onload(gltf, pisa, pisa_pos.x, pisa_pos.y, pisa_pos.z, 1 / 4, Math.PI / 2);
@@ -620,9 +616,10 @@ gltf_loader.load(pisa.getObjPath(), function (gltf) {
 const eiffel_pos = {
   x: 20,
   y: 0,
-  z: 23
+  z: 23,
 };
-const desk_eiffel = "Dinamai sesuai nama perancangnya, Gustave Eiffel, Menara Eiffel adalah bangunan tertinggi di Paris dan salah satu struktur terkenal di dunia. Lebih dari 200.000.000 orang telah mengunjungi menara ini sejak pembangunannya tahun 1889, termasuk 6.719.200 orang tahun 2006, menjadikannya monumen berbayar yang paling banyak dikunjungi di dunia. Termasuk antena setinggi 24 m (79 kaki), struktur ini memiliki tinggi 325 m (1.063 kaki) sejak 2000, yang sama dengan bangunan konvensional bertingkat 81."
+const desk_eiffel =
+  "Dinamai sesuai nama perancangnya, Gustave Eiffel, Menara Eiffel adalah bangunan tertinggi di Paris dan salah satu struktur terkenal di dunia. Lebih dari 200.000.000 orang telah mengunjungi menara ini sejak pembangunannya tahun 1889, termasuk 6.719.200 orang tahun 2006, menjadikannya monumen berbayar yang paling banyak dikunjungi di dunia. Termasuk antena setinggi 24 m (79 kaki), struktur ini memiliki tinggi 325 m (1.063 kaki) sejak 2000, yang sama dengan bangunan konvensional bertingkat 81.";
 var eiffel = new gltf_object("Eiffel", desk_eiffel, "obj/eiffel/scene.gltf", pan_eiffel);
 gltf_loader.load(eiffel.getObjPath(), function (gltf) {
   onload(gltf, eiffel, eiffel_pos.x, eiffel_pos.y, eiffel_pos.z, 1.5, Math.PI / 2);
@@ -636,10 +633,11 @@ const tajmahal_pos = {
   y: 0,
   z: 25,
 };
-const desk_tajmahal = "Taj Mahal (bahasa Urdu: تاج محل, Hindi: ताज महल) adalah sebuah monumen yang terletak di Agra, India. Dibangun atas keinginan Kaisar Mughal Shāh Jahān, anak Jahangir, sebagai sebuah mausoleum untuk istri Persianya, Arjumand Banu Begum, juga dikenal sebagai Mumtaz-ul-Zamani atau Mumtaz Mahal. Taj Mahal merupakan sebuah adi karya dari arsitektur Mughal. Shah Jahan, kaisar dari Kekaisaran Mughal memiliki kekayaan yang besar selama masa kejayaannya. Pada 1631 istri ketiganya dan merupakan istri yang paling dicintainya wafat sewaktu melahirkan putrinya Gauhara Begum, anak ke-14 mereka."
+const desk_tajmahal =
+  "Taj Mahal (bahasa Urdu: تاج محل, Hindi: ताज महल) adalah sebuah monumen yang terletak di Agra, India. Dibangun atas keinginan Kaisar Mughal Shāh Jahān, anak Jahangir, sebagai sebuah mausoleum untuk istri Persianya, Arjumand Banu Begum, juga dikenal sebagai Mumtaz-ul-Zamani atau Mumtaz Mahal. Taj Mahal merupakan sebuah adi karya dari arsitektur Mughal. Shah Jahan, kaisar dari Kekaisaran Mughal memiliki kekayaan yang besar selama masa kejayaannya. Pada 1631 istri ketiganya dan merupakan istri yang paling dicintainya wafat sewaktu melahirkan putrinya Gauhara Begum, anak ke-14 mereka.";
 var tajmahal = new gltf_object("Taj Mahal", desk_tajmahal, "obj/tajmahal/scene.gltf", pan_taj);
 gltf_loader.load(tajmahal.getObjPath(), function (gltf) {
-  onload(gltf, tajmahal, tajmahal_pos.x, tajmahal_pos.y, tajmahal_pos.z, 1/15);
+  onload(gltf, tajmahal, tajmahal_pos.x, tajmahal_pos.y, tajmahal_pos.z, 1 / 15);
 });
 
 objects.push(monas);
@@ -664,45 +662,41 @@ const mouse = new THREE.Vector2();
 // Controls
 const controls = new PointerLockControls(camera, renderer.domElement);
 
-okButton.onclick = function closeWindow(){
-  if(state == PANORAMA){
-    state = PANORAMA
-  }
-  else if(state == LUKISAN){
-    state = PAUSE
-  }
-  else{
-    state = PLAY
-  }
-  if(!main_bgm.isPlaying) main_bgm.play();
-  keterangan.style.display = "none";
-  controls.lock()
-}
-
-controls.addEventListener('lock', function(){
-  if(state == PAUSE){
+okButton.onclick = function closeWindow() {
+  if (state == PANORAMA) {
+    state = PANORAMA;
+  } else if (state == LUKISAN) {
+    state = PAUSE;
+  } else {
     state = PLAY;
   }
-})
+  if (!main_bgm.isPlaying) main_bgm.play();
+  keterangan.style.display = "none";
+  controls.lock();
+};
 
-controls.addEventListener('unlock', function(){
-  if(state == PLAY){
-    ket_title.innerHTML = __title
-    ket_deskripsi.innerHTML = __deskripsi
-    state = PAUSE
+controls.addEventListener("lock", function () {
+  if (state == PAUSE) {
+    state = PLAY;
   }
-  else if(state == PANORAMA){
-    ket_awal.style.display = "none"
-    ket_panorama.style.display = "block"
-    state = PANORAMA
-  }
-  else if(state == LUKISAN){
-    ket_awal.style.display = "none"
-    ket_panorama.style.display = "none"
-    state = LUKISAN
+});
+
+controls.addEventListener("unlock", function () {
+  if (state == PLAY) {
+    ket_title.innerHTML = __title;
+    ket_deskripsi.innerHTML = __deskripsi;
+    state = PAUSE;
+  } else if (state == PANORAMA) {
+    ket_awal.style.display = "none";
+    ket_panorama.style.display = "block";
+    state = PANORAMA;
+  } else if (state == LUKISAN) {
+    ket_awal.style.display = "none";
+    ket_panorama.style.display = "none";
+    state = LUKISAN;
   }
   keterangan.style.display = "block";
-})
+});
 
 const onMouseClick = function (e) {
   mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
@@ -710,7 +704,8 @@ const onMouseClick = function (e) {
   raycast.setFromCamera(mouse, camera);
   const intersects = raycast.intersectObjects(scene.children, true);
   if (intersects.length > 0) {
-    var showPanorama = false, showLukisan = false;
+    var showPanorama = false,
+      showLukisan = false;
     var object, lukisan;
     // Check Objects
     for (var i = 0; i < objects.length; i++) {
@@ -721,8 +716,8 @@ const onMouseClick = function (e) {
       }
     }
     // Check Lukisan
-    for(var i = 0; i < lukisans.length; i++){
-      if (intersects[0].object == lukisans[i].getMesh()){
+    for (var i = 0; i < lukisans.length; i++) {
+      if (intersects[0].object == lukisans[i].getMesh()) {
         showLukisan = true;
         lukisan = lukisans[i];
         break;
@@ -738,11 +733,10 @@ const onMouseClick = function (e) {
       ket_deskripsi.innerHTML = object.Deskripsi;
       state = PANORAMA;
       controls.unlock();
-    }
-    else if(showLukisan){
-      if(state == PAUSE){
-        state = PLAY
-        return
+    } else if (showLukisan) {
+      if (state == PAUSE) {
+        state = PLAY;
+        return;
       }
       ket_title.innerHTML = lukisan.Nama;
       ket_deskripsi.innerHTML = lukisan.Deskripsi;
@@ -758,13 +752,12 @@ document.addEventListener("click", onMouseClick, false);
 let speed = 1 / 2;
 
 const onKeyDown = function (e) {
-  if(state == PANORAMA){
-    if(e.code == "KeyQ"){
+  if (state == PANORAMA) {
+    if (e.code == "KeyQ") {
       camera.position.set(player.positionX, player.positionY, player.positionZ);
       state = PLAY;
     }
-  }
-  else if(state == PLAY){
+  } else if (state == PLAY) {
     switch (e.code) {
       case "KeyW":
         controls.moveForward(speed);
@@ -781,8 +774,7 @@ const onKeyDown = function (e) {
       default:
         break;
     }
-  }
-  else return;
+  } else return;
 };
 document.addEventListener("keydown", onKeyDown, false);
 
@@ -803,12 +795,11 @@ const mainloop = function () {
   requestAnimationFrame(mainloop);
 };
 
-playButton.onclick = function play(){
-  main_menu.style.display = "none"
-  keterangan.style.display = "block"
+playButton.onclick = function play() {
+  main_menu.style.display = "none";
+  keterangan.style.display = "block";
   ket_title.innerHTML = __title;
   ket_deskripsi.innerHTML = __deskripsi;
-  mainloop()
-  state = PLAY
-}
-
+  mainloop();
+  state = PLAY;
+};
