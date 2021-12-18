@@ -19,6 +19,13 @@ const MAINMENU = 0,
   PAUSE = 4;
 var state = MAINMENU;
 
+// Haykal
+const player = {
+  positionX: 25 * 2,
+  positionY: 3,
+  positionZ: 4 * 2,
+};
+
 /**
  * HTML Elements
  */
@@ -36,7 +43,7 @@ const __deskripsi = "Hari ini adalah hari libur. Haykal sedang berkujung ke sebu
 
 
 /**
- * Canvas and Scene
+ * Canvas, Camera, and Scene
  *
  */
 
@@ -46,6 +53,10 @@ const canvas = document.getElementById("c");
 // scene and fog
 const scene = new THREE.Scene();
 scene.background = new THREE.Color("grey");
+
+// camera
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+camera.position.set(player.positionX, player.positionY, player.positionZ);
 
 /**
  * Maps Representation w/o Objects
@@ -147,6 +158,30 @@ const lukisan6 = new THREE.TextureLoader().load("lukisan/world-map.jpg");
 
 // Text
 const welcome = loader_texture.load("background/welcome.png");
+const wah = loader_texture.load("background/mumei.jpeg");
+
+// Audio
+const listener = new THREE.AudioListener();
+camera.add(listener)
+const main_bgm = new THREE.Audio(listener);
+const loader_main_bgm = new THREE.AudioLoader();
+loader_main_bgm.load(
+  "music/slowmotion.mp3",
+  function (res) {
+    main_bgm.setLoop(true)
+    main_bgm.setBuffer(res);
+    main_bgm.setVolume(0.5);
+  },
+  // onProgress callback
+  function (xhr) {
+    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+  },
+
+  // onError callback
+  function (err) {
+    console.log("Error");
+  }
+);
 
 /**
  *
@@ -163,13 +198,6 @@ const WALL_HEIGHT1 = 15;
 const WALL_WIDTH_DEPTH1 = 1;
 const ROOF_WIDTH = 100;
 const ROOF_HEIGHT = 100;
-
-// Hakyal
-const player = {
-  positionX: 25 * WALL_WIDTH_DEPTH,
-  positionY: 3,
-  positionZ: 4 * WALL_WIDTH_DEPTH,
-};
 
 // Make PlaneGeometry
 function makeFloor(texture) {
@@ -537,6 +565,11 @@ welcome_board.position.set(25.5 * WALL_WIDTH_DEPTH, 20, 17 * WALL_WIDTH_DEPTH);
 welcome_board.rotation.y = Math.PI;
 scene.add(welcome_board);
 
+const wahwah = new THREE.Mesh(new THREE.PlaneGeometry(20, 40), new THREE.MeshPhongMaterial({ map: wah, side: THREE.DoubleSide }));
+wahwah.position.set(25.5 * WALL_WIDTH_DEPTH, 10, 38 * WALL_WIDTH_DEPTH);
+wahwah.rotation.y = Math.PI;
+scene.add(wahwah);
+
 
 /**
  * Object Monas
@@ -550,7 +583,7 @@ const desk_monas =
   "Monumen Nasional atau yang populer disingkat dengan Monas atau Tugu Monas adalah monumen peringatan setinggi 132 meter (433 kaki) yang didirikan untuk mengenang perlawanan dan perjuangan rakyat Indonesia untuk merebut kemerdekaan dari pemerintahan kolonial Hindia Belanda. Pembangunan monumen ini dimulai pada tanggal 17 Agustus 1961 di bawah perintah presiden Soekarno dan dibuka untuk umum pada tanggal 12 Juli 1975. Tugu ini dimahkotai lidah api yang dilapisi lembaran emas yang melambangkan semangat perjuangan yang menyala-nyala dari rakyat Indonesia. Monumen Nasional terletak tepat di tengah Lapangan Medan Merdeka, Jakarta Pusat.";
 var monas = new gltf_object("Monas", desk_monas, "obj/monas/scene.gltf", pan_monas);
 gltf_loader.load(monas.getObjPath(), function (gltf) {
-  // onload(gltf, monas, monas_pos.x, monas_pos.y, monas_pos.z, 1 / 2);
+  onload(gltf, monas, monas_pos.x, monas_pos.y, monas_pos.z, 1 / 2);
 });
 
 /**
@@ -564,7 +597,7 @@ const coles_pos = {
 const desk_coles = "Koloseum (bahasa Latin: Colosseum atau Colisseum; bahasa Italia: Colosseo) adalah sebuah peninggalan bersejarah berupa arena gladiator, dibangun oleh Vespasian. Tempat pertunjukan yang besar berbentuk elips yang disebut amfiteater atau dengan nama aslinya Amphitheatrum Flavium, yang termasuk salah satu dari Enam Puluh Sembilan Keajaiban Dunia Pertengahan. Situs ini terletak di kota kecil di Italia, Roma, yang didirikan oleh Wali kota Vespasianus pada masa Domitianus dan diselesaikan oleh anaknya Titus, dan menjadi salah satu karya terbesar dari arsitektur Kekaisaran Romawi yang pernah dibangun. Koloseum dirancang untuk menampung 50.000 orang penonton."
 var coles = new gltf_object("Colesseum", desk_coles, "obj/colesseum/scene.gltf", pan_coles);
 gltf_loader.load(coles.getObjPath(), function (gltf) {
-  // onload(gltf, coles, coles_pos.x, coles_pos.y, coles_pos.z, 1);
+  onload(gltf, coles, coles_pos.x, coles_pos.y, coles_pos.z, 1);
 });
 
 /**
@@ -578,7 +611,7 @@ const pisa_pos = {
 const desk_pisa = "Menara Miring Pisa (Bahasa Italia: Torre pendente di Pisa atau disingkat Torre di Pisa), atau lebih dikenal dengan Menara Pisa, adalah sebuah campanile atau menara lonceng katedral di kota Pisa, Italia. Menara Pisa sebenarnya dibuat agar berdiri secara vertikal seperti menara lonceng pada umumnya, tetapi mulai miring tak lama setelah pembangunannya dimulai pada Agustus 1173. Ia terletak di belakang katedral dan merupakan bangunan ketiga Campo dei Miracoli (lapangan pelangi) kota Pisa. Ketinggian menara ini adalah 55,86 m dari permukaan tanah terendah dan 56,70 m dari permukaan tanah tertinggi. Kelebaran dinding di bawahnya mencapai 4,09 m dan di puncak 2,48 m. Bobotnya diperkirakan mencapai 14.500 ton. Menara Pisa memiliki 294 anak tangga. Dengan adanya menara ini, sektor pendapatan ekonomi jadi bertambah karena adanya objek wisata."
 var pisa = new gltf_object("Pisa Tower", desk_pisa, "obj/pisa/scene.gltf", pan_pisa);
 gltf_loader.load(pisa.getObjPath(), function (gltf) {
-  // onload(gltf, pisa, pisa_pos.x, pisa_pos.y, pisa_pos.z, 1 / 4, Math.PI / 2);
+  onload(gltf, pisa, pisa_pos.x, pisa_pos.y, pisa_pos.z, 1 / 4, Math.PI / 2);
 });
 
 /**
@@ -592,7 +625,7 @@ const eiffel_pos = {
 const desk_eiffel = "Dinamai sesuai nama perancangnya, Gustave Eiffel, Menara Eiffel adalah bangunan tertinggi di Paris dan salah satu struktur terkenal di dunia. Lebih dari 200.000.000 orang telah mengunjungi menara ini sejak pembangunannya tahun 1889, termasuk 6.719.200 orang tahun 2006, menjadikannya monumen berbayar yang paling banyak dikunjungi di dunia. Termasuk antena setinggi 24 m (79 kaki), struktur ini memiliki tinggi 325 m (1.063 kaki) sejak 2000, yang sama dengan bangunan konvensional bertingkat 81."
 var eiffel = new gltf_object("Eiffel", desk_eiffel, "obj/eiffel/scene.gltf", pan_eiffel);
 gltf_loader.load(eiffel.getObjPath(), function (gltf) {
-  // onload(gltf, eiffel, eiffel_pos.x, eiffel_pos.y, eiffel_pos.z, 1.5, Math.PI / 2);
+  onload(gltf, eiffel, eiffel_pos.x, eiffel_pos.y, eiffel_pos.z, 1.5, Math.PI / 2);
 });
 
 /**
@@ -606,7 +639,7 @@ const tajmahal_pos = {
 const desk_tajmahal = "Taj Mahal (bahasa Urdu: تاج محل, Hindi: ताज महल) adalah sebuah monumen yang terletak di Agra, India. Dibangun atas keinginan Kaisar Mughal Shāh Jahān, anak Jahangir, sebagai sebuah mausoleum untuk istri Persianya, Arjumand Banu Begum, juga dikenal sebagai Mumtaz-ul-Zamani atau Mumtaz Mahal. Taj Mahal merupakan sebuah adi karya dari arsitektur Mughal. Shah Jahan, kaisar dari Kekaisaran Mughal memiliki kekayaan yang besar selama masa kejayaannya. Pada 1631 istri ketiganya dan merupakan istri yang paling dicintainya wafat sewaktu melahirkan putrinya Gauhara Begum, anak ke-14 mereka."
 var tajmahal = new gltf_object("Taj Mahal", desk_tajmahal, "obj/tajmahal/scene.gltf", pan_taj);
 gltf_loader.load(tajmahal.getObjPath(), function (gltf) {
-  // onload(gltf, tajmahal, tajmahal_pos.x, tajmahal_pos.y, tajmahal_pos.z, 1/15);
+  onload(gltf, tajmahal, tajmahal_pos.x, tajmahal_pos.y, tajmahal_pos.z, 1/15);
 });
 
 objects.push(monas);
@@ -615,12 +648,9 @@ objects.push(eiffel);
 objects.push(tajmahal, coles);
 
 /**
- * Camera, Renderer, Controls, and Raycaster
+ * Renderer, Controls, and Raycaster
  *
  */
-// camera
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
-camera.position.set(player.positionX, player.positionY, player.positionZ);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
@@ -644,6 +674,7 @@ okButton.onclick = function closeWindow(){
   else{
     state = PLAY
   }
+  if(!main_bgm.isPlaying) main_bgm.play();
   keterangan.style.display = "none";
   controls.lock()
 }
