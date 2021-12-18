@@ -64,7 +64,7 @@ const maps = [
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
-  [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+  [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
@@ -91,7 +91,7 @@ const maps = [
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
   [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
-  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 2],
+  [2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 2],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -143,6 +143,9 @@ const lukisan3 = new THREE.TextureLoader().load("lukisan/Hendra-Gunawan-Pandawa-
 const lukisan4 = new THREE.TextureLoader().load("lukisan/Rudolf-Bonnet-Market-Scene-1948.jpg");
 const lukisan5 = new THREE.TextureLoader().load("lukisan/lukisan5.jpg");
 const lukisan6 = new THREE.TextureLoader().load("lukisan/world-map.jpg");
+
+// Text
+const welcome = loader_texture.load("background/welcome.png");
 
 /**
  *
@@ -209,7 +212,7 @@ function makeWall1(texture) {
 
 // Make SpotLight
 function makeSpotLight(){
-  const light = new THREE.SpotLight(0xffffff, 1);
+  const light = new THREE.SpotLight(0xffffff, 0.7);
   return light
 }
 
@@ -352,40 +355,187 @@ function onload(gltf, Object, x, y, z, scalar, rotationY) {
  * Lukisan
  */
 
-const pic1 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan1, side: THREE.DoubleSide }));
-scene.add(pic1);
-pic1.translateX(5.5).translateY(6).translateZ(92);
-pic1.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+const DEPAN = 0,
+  KANAN = 1,
+  KIRI = 2;
+class lukisan_object{
+  constructor(nama, deskripsi, size, position){
+    this.Nama = nama;
+    this.Deskripsi = deskripsi;
+    this.Size = {
+      w: size.w,
+      h: size.h,
+    }
+    this.Position = {
+      x: position.x,
+      y: position.y,
+      z: position.z
+    }
+  }
+  setMesh(mesh){
+    this.Mesh = mesh;
+  }
+  getMesh(){
+    return this.Mesh;
+  }
+}
 
-const pic2 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan2, side: THREE.DoubleSide }));
-scene.add(pic2);
-pic2.translateX(34).translateY(6).translateZ(102.5);
-pic2.rotation.y = Math.PI / -2;
-pic2.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+function addLukisan(lukisan, texture, rotation, light_pos){
+  // Lukisan
+  const geometry = new THREE.PlaneGeometry(lukisan.Size.w, lukisan.Size.h);
+  const material = new THREE.MeshPhongMaterial({map: texture, side: THREE.DoubleSide});
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.position.set(lukisan.Position.x, lukisan.Position.y,lukisan.Position.z);
+  mesh.rotation.y = rotation;
+  lukisan.setMesh(mesh);
+  scene.add(lukisan.getMesh());
 
-const pic3 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan3, side: THREE.DoubleSide }));
-scene.add(pic3);
-pic3.translateX(54).translateY(6).translateZ(102.5);
-pic3.rotation.y = Math.PI / -2;
-pic3.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+  // Lampu
+  const light = makeSpotLight();
+  if(light_pos == DEPAN){
+    light.position.set(lukisan.Position.x, lukisan.Position.y + 6, lukisan.Position.z - 6);
+  }
+  else if(light_pos == KIRI){
+    light.position.set(lukisan.Position.x + 6, lukisan.Position.y + 6, lukisan.Position.z);
+  }
+  else if(light_pos == KANAN){
+    light.position.set(lukisan.Position.x - 6, lukisan.Position.y + 6, lukisan.Position.z);
+  }
+  light.target.position.set(lukisan.Position.x, lukisan.Position.y, lukisan.Position.z)
+  scene.add(light);
+  scene.add(light.target)
+}
 
-const pic4 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan4, side: THREE.DoubleSide }));
-scene.add(pic4);
-pic4.translateX(14).translateY(6).translateZ(102.5);
-pic4.rotation.y = Math.PI / -2;
-pic4.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+var lukisans = []
 
-const pic5 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan5, side: THREE.DoubleSide }));
-scene.add(pic5);
-pic5.translateX(74).translateY(6).translateZ(102.5);
-pic5.rotation.y = Math.PI / -2;
-pic5.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+const desk_bali_life = "Lorem ipsum"
+const size_bali_life = {
+  w: 9,
+  h: 5
+}
+const pos_bali_life = {
+  x: 5.5,
+  y: 6,
+  z: 92
+}
+const bali_life = new lukisan_object("Bali Life", desk_bali_life, size_bali_life, pos_bali_life)
+addLukisan(bali_life, lukisan1, Math.PI/2, KIRI)
 
-const pic6 = new THREE.Mesh(new THREE.PlaneGeometry(14, 10), new THREE.MeshPhongMaterial({ map: lukisan6, side: THREE.DoubleSide }));
-scene.add(pic6);
-pic6.translateX(92).translateY(7).translateZ(91);
-// pic6.rotation.y = Math.PI / -2;
-pic6.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+const desk_ali_sadikin = "Lorem ipsum";
+const size_ali_sadikin = {
+  w: 9,
+  h: 5,
+};
+const pos_ali_sadikin = {
+  x: 34,
+  y: 6,
+  z: 102.5,
+};
+const ali_sadikin = new lukisan_object("Ali Sadikin Pada Masa Perang", desk_ali_sadikin, size_ali_sadikin, pos_ali_sadikin);
+addLukisan(ali_sadikin, lukisan2, Math.PI, DEPAN);
+
+const desk_pandawa_dadu = "Lorem ipsum";
+const size_pandawa_dadu = {
+  w: 9,
+  h: 5,
+};
+const pos_pandawa_dadu = {
+  x: 54,
+  y: 6,
+  z: 102.5,
+};
+const pandawa_dadu = new lukisan_object("Pandawa Dadu", desk_pandawa_dadu, size_pandawa_dadu, pos_pandawa_dadu);
+addLukisan(pandawa_dadu, lukisan3, Math.PI, DEPAN);
+
+const desk_market_scene = "Lorem ipsum";
+const size_market_scene = {
+  w: 9,
+  h: 5,
+};
+const pos_market_scene = {
+  x: 14,
+  y: 6,
+  z: 102.5,
+};
+const market_scene = new lukisan_object("Market Scene", desk_market_scene, size_market_scene, pos_market_scene);
+addLukisan(market_scene, lukisan4, Math.PI, DEPAN);
+
+const desk_lukisan_5 = "Lorem ipsum";
+const size_lukisan_5 = {
+  w: 9,
+  h: 5,
+};
+const pos_lukisan_5 = {
+  x: 74,
+  y: 6,
+  z: 102.5,
+};
+const lukisan_5 = new lukisan_object("Lukisan 5", desk_lukisan_5, size_lukisan_5, pos_lukisan_5);
+addLukisan(lukisan_5, lukisan5, Math.PI, DEPAN);
+
+const desk_world_map = "Lorem ipsum";
+const size_world_map = {
+  w: 14,
+  h: 10,
+};
+const pos_world_map = {
+  x: 92,
+  y: 6,
+  z: 91,
+};
+const world_map = new lukisan_object("World Map", desk_world_map, size_world_map, pos_world_map);
+addLukisan(world_map, lukisan6, Math.PI/2, KANAN);
+
+lukisans.push(bali_life, ali_sadikin, pandawa_dadu, market_scene, lukisan_5, world_map)
+
+// const pic1 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan1, side: THREE.DoubleSide }));
+// scene.add(pic1);
+// pic1.translateX(5.5).translateY(6).translateZ(92);
+// pic1.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+// const pic1_spotlight = makeSpotLight();
+// pic1_spotlight.position.set(5.5, 7, 92);
+// pic1_spotlight.target.position.set(5.5,0,92);
+// scene.add(pic1_spotlight)
+// scene.add(pic1_spotlight.target)
+
+// const pic2 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan2, side: THREE.DoubleSide }));
+// scene.add(pic2);
+// pic2.translateX(34).translateY(6).translateZ(102.5);
+// pic2.rotation.y = Math.PI / -2;
+// pic2.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+
+// const pic3 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan3, side: THREE.DoubleSide }));
+// scene.add(pic3);
+// pic3.translateX(54).translateY(6).translateZ(102.5);
+// pic3.rotation.y = Math.PI / -2;
+// pic3.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+
+// const pic4 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan4, side: THREE.DoubleSide }));
+// scene.add(pic4);
+// pic4.translateX(14).translateY(6).translateZ(102.5);
+// pic4.rotation.y = Math.PI / -2;
+// pic4.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+
+// const pic5 = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshPhongMaterial({ map: lukisan5, side: THREE.DoubleSide }));
+// scene.add(pic5);
+// pic5.translateX(74).translateY(6).translateZ(102.5);
+// pic5.rotation.y = Math.PI / -2;
+// pic5.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+
+// const pic6 = new THREE.Mesh(new THREE.PlaneGeometry(14, 10), new THREE.MeshPhongMaterial({ map: lukisan6, side: THREE.DoubleSide }));
+// scene.add(pic6);
+// pic6.translateX(92).translateY(7).translateZ(91);
+// // pic6.rotation.y = Math.PI / -2;
+// pic6.rotateOnAxis(new THREE.Vector3(0, -1, 0), Math.PI / 2);
+
+/**
+ * Board
+ */
+const welcome_board = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), new THREE.MeshPhongMaterial({map: welcome, side: THREE.DoubleSide}));
+welcome_board.position.set(25.5 * WALL_WIDTH_DEPTH, 20, 17 * WALL_WIDTH_DEPTH);
+welcome_board.rotation.y = Math.PI;
+scene.add(welcome_board);
+
 
 /**
  * Object Monas
@@ -399,7 +549,7 @@ const desk_monas =
   "Monumen Nasional atau yang populer disingkat dengan Monas atau Tugu Monas adalah monumen peringatan setinggi 132 meter (433 kaki) yang didirikan untuk mengenang perlawanan dan perjuangan rakyat Indonesia untuk merebut kemerdekaan dari pemerintahan kolonial Hindia Belanda. Pembangunan monumen ini dimulai pada tanggal 17 Agustus 1961 di bawah perintah presiden Soekarno dan dibuka untuk umum pada tanggal 12 Juli 1975. Tugu ini dimahkotai lidah api yang dilapisi lembaran emas yang melambangkan semangat perjuangan yang menyala-nyala dari rakyat Indonesia. Monumen Nasional terletak tepat di tengah Lapangan Medan Merdeka, Jakarta Pusat.";
 var monas = new gltf_object("Monas", desk_monas, "obj/monas/scene.gltf", pan_monas);
 gltf_loader.load(monas.getObjPath(), function (gltf) {
-  onload(gltf, monas, monas_pos.x, monas_pos.y, monas_pos.z, 1 / 2);
+  // onload(gltf, monas, monas_pos.x, monas_pos.y, monas_pos.z, 1 / 2);
 });
 
 /**
@@ -413,7 +563,7 @@ const coles_pos = {
 const desk_coles = "Koloseum (bahasa Latin: Colosseum atau Colisseum; bahasa Italia: Colosseo) adalah sebuah peninggalan bersejarah berupa arena gladiator, dibangun oleh Vespasian. Tempat pertunjukan yang besar berbentuk elips yang disebut amfiteater atau dengan nama aslinya Amphitheatrum Flavium, yang termasuk salah satu dari Enam Puluh Sembilan Keajaiban Dunia Pertengahan. Situs ini terletak di kota kecil di Italia, Roma, yang didirikan oleh Wali kota Vespasianus pada masa Domitianus dan diselesaikan oleh anaknya Titus, dan menjadi salah satu karya terbesar dari arsitektur Kekaisaran Romawi yang pernah dibangun. Koloseum dirancang untuk menampung 50.000 orang penonton."
 var coles = new gltf_object("Colesseum", desk_coles, "obj/colesseum/scene.gltf", pan_coles);
 gltf_loader.load(coles.getObjPath(), function (gltf) {
-  onload(gltf, coles, coles_pos.x, coles_pos.y, coles_pos.z, 1);
+  // onload(gltf, coles, coles_pos.x, coles_pos.y, coles_pos.z, 1);
 });
 
 /**
@@ -427,7 +577,7 @@ const pisa_pos = {
 const desk_pisa = "Menara Miring Pisa (Bahasa Italia: Torre pendente di Pisa atau disingkat Torre di Pisa), atau lebih dikenal dengan Menara Pisa, adalah sebuah campanile atau menara lonceng katedral di kota Pisa, Italia. Menara Pisa sebenarnya dibuat agar berdiri secara vertikal seperti menara lonceng pada umumnya, tetapi mulai miring tak lama setelah pembangunannya dimulai pada Agustus 1173. Ia terletak di belakang katedral dan merupakan bangunan ketiga Campo dei Miracoli (lapangan pelangi) kota Pisa. Ketinggian menara ini adalah 55,86 m dari permukaan tanah terendah dan 56,70 m dari permukaan tanah tertinggi. Kelebaran dinding di bawahnya mencapai 4,09 m dan di puncak 2,48 m. Bobotnya diperkirakan mencapai 14.500 ton. Menara Pisa memiliki 294 anak tangga. Dengan adanya menara ini, sektor pendapatan ekonomi jadi bertambah karena adanya objek wisata."
 var pisa = new gltf_object("Pisa Tower", desk_pisa, "obj/pisa/scene.gltf", pan_pisa);
 gltf_loader.load(pisa.getObjPath(), function (gltf) {
-  onload(gltf, pisa, pisa_pos.x, pisa_pos.y, pisa_pos.z, 1 / 4, Math.PI / 2);
+  // onload(gltf, pisa, pisa_pos.x, pisa_pos.y, pisa_pos.z, 1 / 4, Math.PI / 2);
 });
 
 /**
@@ -441,7 +591,7 @@ const eiffel_pos = {
 const desk_eiffel = "Dinamai sesuai nama perancangnya, Gustave Eiffel, Menara Eiffel adalah bangunan tertinggi di Paris dan salah satu struktur terkenal di dunia. Lebih dari 200.000.000 orang telah mengunjungi menara ini sejak pembangunannya tahun 1889, termasuk 6.719.200 orang tahun 2006, menjadikannya monumen berbayar yang paling banyak dikunjungi di dunia. Termasuk antena setinggi 24 m (79 kaki), struktur ini memiliki tinggi 325 m (1.063 kaki) sejak 2000, yang sama dengan bangunan konvensional bertingkat 81."
 var eiffel = new gltf_object("Eiffel", desk_eiffel, "obj/eiffel/scene.gltf", pan_eiffel);
 gltf_loader.load(eiffel.getObjPath(), function (gltf) {
-  onload(gltf, eiffel, eiffel_pos.x, eiffel_pos.y, eiffel_pos.z, 1.5, Math.PI / 2);
+  // onload(gltf, eiffel, eiffel_pos.x, eiffel_pos.y, eiffel_pos.z, 1.5, Math.PI / 2);
 });
 
 /**
@@ -455,7 +605,7 @@ const tajmahal_pos = {
 const desk_tajmahal = "Taj Mahal (bahasa Urdu: تاج محل, Hindi: ताज महल) adalah sebuah monumen yang terletak di Agra, India. Dibangun atas keinginan Kaisar Mughal Shāh Jahān, anak Jahangir, sebagai sebuah mausoleum untuk istri Persianya, Arjumand Banu Begum, juga dikenal sebagai Mumtaz-ul-Zamani atau Mumtaz Mahal. Taj Mahal merupakan sebuah adi karya dari arsitektur Mughal. Shah Jahan, kaisar dari Kekaisaran Mughal memiliki kekayaan yang besar selama masa kejayaannya. Pada 1631 istri ketiganya dan merupakan istri yang paling dicintainya wafat sewaktu melahirkan putrinya Gauhara Begum, anak ke-14 mereka."
 var tajmahal = new gltf_object("Taj Mahal", desk_tajmahal, "obj/tajmahal/scene.gltf", pan_taj);
 gltf_loader.load(tajmahal.getObjPath(), function (gltf) {
-  onload(gltf, tajmahal, tajmahal_pos.x, tajmahal_pos.y, tajmahal_pos.z, 1/15);
+  // onload(gltf, tajmahal, tajmahal_pos.x, tajmahal_pos.y, tajmahal_pos.z, 1/15);
 });
 
 objects.push(monas);
