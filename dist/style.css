@@ -30,23 +30,35 @@ body {
   background-size: 100% 100%;
 }
 #keterangan{
-  display: none;
   position: absolute;
-
-  top: 50%;
-  left: 50%;
-  height: 500px;
-  width: 500px;
-  margin-top: -250px;
-  margin-left: -250px;
-
-  color: white;
-  text-align: center;
-  font-size: large;
+  display: none;
+  height: 100%;
+  width: 100%;
 
   background-color: rgba(0, 0, 0, 0.6);
   background-blend-mode: darken;
   background-size: 100% 100%;
+}
+#inner-keterangan{
+  margin: 20vh 20vw 0vh 20vw;
+  text-align: center;
+}
+#ket-title, #ket-deskripsi, #ket-panorama, #ket-awal{
+  text-align: center;
+  font-size: large;
+}
+#ket-title{
+  color: lightblue;
+}
+#ket-deskripsi{
+  color: white;
+}
+#ket-awal{
+  color: lightcoral;
+}
+#ket-panorama{
+  display: none;
+  color: lightcoral;
 }
 #play, #ok{
   background-color: red;
