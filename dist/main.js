@@ -12,10 +12,17 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.135.0/examples/jsm/l
 /**
  * App State
  */
-const PLAY = 0,
-  PAUSE = 1,
-  OVER = 2;
-var state = PLAY;
+const MAINMENU = 0,
+  PLAY = 1,
+  PAUSE = 2;
+var state = MAINMENU;
+
+/**
+ * HTML Elements
+ */
+const main_menu = document.getElementById("menu")
+const playButton = document.getElementById("play");
+
 
 /**
  * Canvas and Scene
@@ -390,8 +397,8 @@ gltf_loader.load(monas.getObjPath(), function (gltf) {
  * Object Colesseum
  */
 const coles_pos = {
-  x: 5,
-  z: 25,
+  x: 45,
+  z: 15,
   y: -2,
 };
 var coles = new gltf_object("Colesseum", "obj/colesseum/scene.gltf", pan_coles);
@@ -427,8 +434,8 @@ gltf_loader.load(eiffel.getObjPath(), function (gltf) {
  * Object Taj Mahal
  */
 const tajmahal_pos = {
-  x: 45,
-  z: 15,
+  x: 5,
+  z: 25,
 };
 var tajmahal = new gltf_object("Taj Mahal", "obj/tajmahal/scene.gltf", pan_taj);
 gltf_loader.load(tajmahal.getObjPath(), function (gltf) {
@@ -501,6 +508,7 @@ document.addEventListener("click", onMouseClick, false);
 let speed = 1 / 2;
 
 const onKeyDown = function (e) {
+  if(state != PLAY) return
   switch (e.code) {
     case "KeyW":
       controls.moveForward(speed);
@@ -533,8 +541,13 @@ const mainloop = function () {
     camera.aspect = canvas.clientWidth / canvas.clientHeight;
     camera.updateProjectionMatrix();
   }
-
   renderer.render(scene, camera);
   requestAnimationFrame(mainloop);
 };
-mainloop();
+
+playButton.onclick = function play(){
+  main_menu.style.display = "none"
+  mainloop()
+  state = PLAY
+}
+
