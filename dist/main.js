@@ -14,7 +14,8 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.135.0/examples/jsm/l
  */
 const MAINMENU = 0,
   PLAY = 1,
-  PAUSE = 2;
+  PANORAMA = 2,
+  PAUSE = 3;
 var state = MAINMENU;
 
 /**
@@ -22,6 +23,13 @@ var state = MAINMENU;
  */
 const main_menu = document.getElementById("menu")
 const playButton = document.getElementById("play");
+const keterangan = document.getElementById("keterangan")
+const ket_title = document.getElementById("title")
+const ket_deskripsi = document.getElementById("deskripsi")
+const okButton = document.getElementById("ok")
+
+const __title = "Welcome to THE MUSEUM"
+const __deskripsi = "Hari ini adalah hari libur. Haykal sedang berkujung ke sebuah museum. Akan tetapi, 'museum' ini berbeda dengan museum yang lainnya. Ikutilah perjalanan Haykal mengunjungi MUSEUM!"
 
 
 /**
@@ -467,37 +475,47 @@ const mouse = new THREE.Vector2();
 // Controls
 const controls = new PointerLockControls(camera, renderer.domElement);
 
+okButton.onclick = function closeWindow(){
+  keterangan.style.display = "none";
+  state = PLAY
+  controls.lock()
+}
+
+controls.addEventListener('unlock', function(){
+  if(state == PLAY){
+    ket_title.innerHTML = __title
+    ket_deskripsi.innerHTML = __deskripsi
+    state = PAUSE
+  }
+  else if(state == PANORAMA){
+
+    state = PANORAMA
+  }
+  keterangan.style.display = "block";
+})
+
 const onMouseClick = function (e) {
-  if (controls.isLocked == false) {
-    controls.lock();
-  } else {
-    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
-
-    raycast.setFromCamera(mouse, camera);
-    const intersects = raycast.intersectObjects(scene.children, true);
-
-    if (intersects.length > 0) {
-      var showPanorama = false;
-      var object;
-      for (var i = 0; i < objects.length; i++) {
-        const obj = objects[i].getMesh();
-        if (intersects[0].object == obj) {
-          showPanorama = true;
-          object = objects[i];
-          break;
-        }
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  raycast.setFromCamera(mouse, camera);
+  const intersects = raycast.intersectObjects(scene.children, true);
+  if (intersects.length > 0) {
+    var showPanorama = false;
+    var object;
+    for (var i = 0; i < objects.length; i++) {
+      const obj = objects[i].getMesh();
+      if (intersects[0].object == obj) {
+        showPanorama = true;
+        object = objects[i];
+        break;
       }
-      if (showPanorama) {
-        document.getElementById("mouse").innerHTML = "Nice";
-        player.positionX = camera.position.x;
-        player.positionY = camera.position.y;
-        player.positionZ = camera.position.z;
-        setPanoramaImage(object.getPanorama());
-        camera.position.set(0, -1000, 0);
-      } else {
-        document.getElementById("mouse").innerHTML = "Not Nice";
-      }
+    }
+    if (showPanorama) {
+      player.positionX = camera.position.x;
+      player.positionY = camera.position.y;
+      player.positionZ = camera.position.z;
+      setPanoramaImage(object.getPanorama());
+      camera.position.set(0, -1000, 0);
     }
   }
 };
@@ -547,6 +565,9 @@ const mainloop = function () {
 
 playButton.onclick = function play(){
   main_menu.style.display = "none"
+  keterangan.style.display = "block"
+  ket_title.innerHTML = __title;
+  ket_deskripsi.innerHTML = __deskripsi;
   mainloop()
   state = PLAY
 }

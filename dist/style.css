@@ -1,6 +1,5 @@
 html,
 body {
-  height: 100%;
   margin: auto;
 }
 #c {
@@ -10,10 +9,11 @@ body {
   display: block;
 }
 #menu{
+  position: absolute;
   width: 100%;
   height: 100%;
 
-	display: flex;
+  display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -30,8 +30,25 @@ body {
   background-size: 100% 100%;
 }
 #keterangan{
-  z-index: 1;
   display: none;
+}
+#inner-keterangan{
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  height: 500px;
+  width: 500px;
+  margin-top: -250px;
+  margin-left: -250px;
+
+  color: white;
+  text-align: center;
+  font-size: large;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: darken;
+  background-size: 100% 100%;
 }
 #play, #ok{
   background-color: red;
@@ -47,7 +64,6 @@ body {
   color: red;
 }
 .container {
-  position: absolute; /* makes this the origin of its children */
-  height: 100%;
+  position: relative; /* makes this the origin of its children */
   overflow: hidden;
 }
