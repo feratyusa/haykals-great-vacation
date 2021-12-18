@@ -534,7 +534,7 @@ scene.add(welcome_board);
 const wahwah = new THREE.Mesh(new THREE.PlaneGeometry(20, 40), new THREE.MeshPhongMaterial({ map: wah, side: THREE.DoubleSide }));
 wahwah.position.set(25.5 * WALL_WIDTH_DEPTH, 10, 39 * WALL_WIDTH_DEPTH);
 wahwah.rotation.y = Math.PI;
-scene.add(wahwah);
+// scene.add(wahwah);
 
 /**
  * Object Monas
