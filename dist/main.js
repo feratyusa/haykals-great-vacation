@@ -196,7 +196,6 @@ const MAP_LENGTH = 50;
 const WALL_WIDTH_DEPTH = 2;
 const WALL_HEIGHT = 60;
 const WALL_HEIGHT1 = 15;
-const WALL_WIDTH_DEPTH1 = 1;
 const ROOF_WIDTH = 120;
 const ROOF_HEIGHT = 120;
 
