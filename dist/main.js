@@ -188,7 +188,7 @@ function makeRoof(texture) {
 // Make wall
 function makeWall(texture) {
   const geometry = new THREE.BoxGeometry(WALL_WIDTH_DEPTH, WALL_HEIGHT, WALL_WIDTH_DEPTH);
-  const material = new THREE.MeshBasicMaterial({ map: texture });
+  const material = new THREE.MeshPhongMaterial({ map: texture });
   material.side = THREE.DoubleSide;
   const wall = new THREE.Mesh(geometry, material);
   return wall;
@@ -196,7 +196,7 @@ function makeWall(texture) {
 
 function makeWall1(texture) {
   const geometry1 = new THREE.BoxGeometry(WALL_WIDTH_DEPTH, WALL_HEIGHT1, WALL_WIDTH_DEPTH);
-  const material1 = new THREE.MeshBasicMaterial({ map: texture });
+  const material1 = new THREE.MeshPhongMaterial({ map: texture });
   material1.side = THREE.DoubleSide;
   const wall1 = new THREE.Mesh(geometry1, material1);
   return wall1;
